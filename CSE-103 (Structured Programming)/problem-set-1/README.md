@@ -28,7 +28,7 @@
 26. Write a program in C to find the sum of all elements of the array
 27. Write a program in C to count the total number of duplicate elements in an array
 28. Write a program in C to find an array's maximum and minimum elements.
-29. Write a program in C to insert a new value in the array (unsorted list )
+29. Write a program in C to insert a new value in the array (unsorted list)
 30. Write a program in C to delete an element at the desired position from an array.
 31. Write a program in C to find an element in a given array (Linear search)
 32. Write a program in C to display the sum of the series [ 1+x+x^2/2!+x^3/3!+....]
