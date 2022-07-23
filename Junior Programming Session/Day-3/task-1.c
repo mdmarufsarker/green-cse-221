@@ -1,15 +1,30 @@
 // gcd calculate
 
-#include <stdio.h>
+#include<stdio.h>
 
-int 
+// User-defined function to find gcd of two numbers
+int gcd(int a, int b)
+{
+  int hcf;
+  for(int i=1; i<=a && i<=b; i++)
+  {
+    if(a%i==0 && b%i==0)
+    {
+      hcf = i;
+    }
+  }
+  return hcf;
+}
 
-int main(){
-    int a, b;
+int main()
+{
+  int num1, num2;
 
-    scanf("%d%d", &a, &b);
+  printf("Enter two numbers : ");
+  scanf("%d %d",&num1, &num2);
 
-    printf("%d", gcd(a, b));
+  int result = gcd(num1, num2);
+  printf("The GCD of %d and %d = %d", num1, num2, result);
 
-    return 0;
+  return 0;
 }

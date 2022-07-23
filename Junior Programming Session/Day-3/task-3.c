@@ -1,12 +1,14 @@
 // prime calculate using vector
 
 #include <stdio.h>
+#include <stdbool.h>
 
 // #define ll long long
-
+#define mx 1000000
 bool cross[mx+5]; // storage baraiya nitesi
 int prime[mx+5];
-int idx = 1; 
+int idx = 1;
+
 
 void seive(){
     for(int i = 2; i <= mx; i++){
