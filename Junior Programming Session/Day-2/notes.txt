@@ -1,18 +1,3 @@
-notes.txt
-Last week
-Jul 16
-
-Fahim Mahmud GUB shared an item
-Text
-notes.txt
-
-Can edit
-You
-Jul 16
-
-Fahim Mahmud GUB uploaded an item
-Text
-notes.txt
 // Additional 
 (a+b)%mod=(a%mod+b%mod)%mod
 

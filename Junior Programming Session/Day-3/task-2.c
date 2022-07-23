@@ -1,4 +1,4 @@
-// prime calculate
+// prime number calculate
 
 #include <stdio.h>
 #include <stdbool.h>

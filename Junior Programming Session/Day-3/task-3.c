@@ -1,4 +1,4 @@
-// prime calculate using vector
+// prime number calculate using vector
 
 #include <stdio.h>
 #include <stdbool.h>
