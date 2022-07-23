@@ -1,0 +1,39 @@
+notes.txt
+Last week
+Jul 16
+
+Fahim Mahmud GUB shared an item
+Text
+notes.txt
+
+Can edit
+You
+Jul 16
+
+Fahim Mahmud GUB uploaded an item
+Text
+notes.txt
+// Additional 
+(a+b)%mod=(a%mod+b%mod)%mod
+
+// Subtraction
+(a-b)%mod=(a%mod-b%mod)%mod		where a >= b
+
+# -30%7
+= -2
+
+-30 = 7 * (-4) -2
+	  (-5)
+	  -35 + 5
+
+b = b % mod
+if (b < 0) b += mod
+
+// Multiplication
+(a*b)%mod=(a%mod*b%mod)%mod
+
+
+b/a = b * a^-1
+    = a^m-2(bigmod)		where m is a prime number
+
+https://www.geeksforgeeks.org/modulo-1097-1000000007/
