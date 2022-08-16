@@ -6,5 +6,5 @@
 6. Write a C program to sort array elements in ascending order.
 7. Identity Matrix = I
 8. Tranpose Matrix = row gula column e convert hobe
-9. Symantic Matrix
-10. Spanse Matrix
+9. Symmetric Matrix = main matrix and transpose matrix equal hole.
+10. Sparse Matrix
