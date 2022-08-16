@@ -10,15 +10,8 @@ int main(){
         scanf("%d", &arr[i]);
     }
 
-    int checkPrime(int num){
-    if (num <= 1) return 0;
-        // Check from 2 to half of arr[i]
-        for (int j = 2; j <= num/2; j++){
-        if (num % j == 0){
-            return 0;
-        }
-        return 1;
-        }
+    for(int j = 0; j < n; j++){
+        if(arr[j] )
     }
 
     return 0;
