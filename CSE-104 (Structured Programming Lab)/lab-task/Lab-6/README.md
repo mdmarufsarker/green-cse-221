@@ -4,4 +4,7 @@
 4. Find the second maximum/minimum element of an array.
 5. Write a C program to find reverse of an array.
 6. Write a C program to sort array elements in ascending order.
-7. 2*2 Identity Matrix
+7. Identity Matrix = I
+8. Tranpose Matrix = row gula column e convert hobe
+9. Symantic Matrix
+10. Spanse Matrix
