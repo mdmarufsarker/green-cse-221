@@ -8,7 +8,7 @@ int main() {
     printf("Enter the number of rows and columns of the first matrix: ");
     scanf("%d %d", &r1, &c1);
 
-    printf("Enter the elements of the first matrix: ");
+    printf("Enter the elements of the first matrix: \n");
     for (i = 0; i < r1; i++) {
         for (j = 0; j < c1; j++) {
             scanf("%d", &a[i][j]);
@@ -23,7 +23,7 @@ int main() {
         return 0;
     }
 
-    printf("Enter the elements of the second matrix: ");
+    printf("Enter the elements of the second matrix: \n");
     for (i = 0; i < r2; i++) {
         for (j = 0; j < c2; j++) {
             scanf("%d", &b[i][j]);
