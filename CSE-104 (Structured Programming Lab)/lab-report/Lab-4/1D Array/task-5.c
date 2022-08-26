@@ -13,6 +13,7 @@ int main() {
     for (i = n - 1; i >= 0; i--) {
         printf("%d ", a[i]);
     }
+    printf("\n");
 
 return 0;
 }
