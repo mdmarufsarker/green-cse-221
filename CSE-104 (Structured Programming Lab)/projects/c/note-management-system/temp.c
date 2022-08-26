@@ -1,0 +1,320 @@
+// Note Management System
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int i = 0;
+
+// structure of all notes
+struct note {
+    char title[50];
+    char content[500];
+    char last_date[50];
+    int id;
+} n[50];
+
+// add a new note
+void add_note(){
+    system("clear");
+    printf("Add the Note Details\n");
+    printf("-------------------------\n");
+    // bug solved
+    // user theke string input nile fflush(stdin) run kora lage. noile problem face korte hoy
+    // like input nite dey na/ title input dile baki 2 ta kaj kore na auto function theke ber hoye jay.
+
+    printf("Enter the Note Title: ");
+    // scanf("%s", n[i].title);
+    fgets(n[i].title, 50, stdin);
+    fflush(stdin);
+    printf("Enter the Note Content: ");
+    // scanf("%s", n[i].content);
+    fgets(n[i].content, 500, stdin);
+    fflush(stdin);
+    printf("Enter the Last Date: ");
+    // scanf("%s", n[i].last_date);
+    fgets(n[i].last_date, 50, stdin);
+    fflush(stdin);
+    // printf("Enter the Note ID\n");
+    // scanf("%d", &n[i].id);
+    n[i].id = i;
+    i = i + 1;
+    system("clear");
+}
+
+// delete a single note
+void del_note(){
+    system("clear");
+    int x;
+    printf("Enter the Note ID\n");
+    scanf("%d", &x);
+
+    for(int j = 0; j < i; j++){
+        if(x == n[j].id){
+            for(int k = j; k < i; k++){
+                n[k] = n[k+1];
+            }
+            i = i - 1;
+        }
+    }
+    printf("Note Deleted Successfully\n");
+}
+
+// bug: update isn't working
+// bug solved used i but I have to use j
+
+// update a single note
+void up_note(){
+    system("clear");
+    int x;
+    printf("Enter the Note ID\n");
+    scanf("%d", &x);
+
+    for(int j = 0; j < i; j++){
+        if(x == n[j].id){
+            printf("Choose what you want to update\n");
+            printf("1. Title\n");
+            printf("2. Description\n");
+            printf("3. Last Date\n");
+
+            int choice;
+            scanf("%d", &choice);
+
+            switch(choice){
+                case 1:
+                    printf("Enter the Note Title: ");
+                    scanf("%s", n[j].title);
+                    // fgets(n[j].title, 50, stdin);
+                    fflush(stdin);
+                    break;
+                case 2:
+                    printf("Enter the Note Content: ");
+                    scanf("%s", n[j].content);
+                    // fgets(n[j].content, 500, stdin);
+                    fflush(stdin);
+                    break;
+                case 3:
+                    printf("Enter the Last Date: ");
+                    scanf("%s", n[j].last_date);
+                    // fgets(n[j].last_date, 50, stdin);
+                    fflush(stdin);
+                    break;
+                default:
+                    printf("Invalid Choice\n");
+                    break;
+            }
+        }
+    }
+    printf("Note Updated Successfully\n");
+}
+
+// find a note by its title
+void find_by_title(){
+    system("clear");
+    char x[50];
+    printf("Enter the Note Title\n");
+    scanf("%s", x);
+
+    for(int j = 0; j < i; j++){
+        // it returns 0 if it is true
+        // so we need to use != 0
+        // way - 1 strcmp(x, n[j].title) == 0
+        // way - 2 (!strstr(n[j].title, x))
+        if(strcmp(x, n[j].title) == 0){
+            printf("The Note Details are:\n");
+            printf("ID: %d\n", n[j].id);
+            printf("Title: %s\n", n[j].title);
+            printf("Description: %s\n", n[j].content);
+            printf("Last Date: %s\n", n[j].last_date);
+        }
+    }
+}
+
+// find a single note
+void find_note(){
+    system("clear");
+    int x;
+    printf("Enter the Note ID\n");
+    scanf("%d", &x);
+
+    for(int j = 0; j < i; j++){
+        if(x == n[j - 1].id){
+            printf("The Note Details are:\n");
+            printf("ID: %d\n", n[j].id);
+            printf("Title: %s\n", n[j].title);
+            printf("Description: %s\n", n[j].content);
+            printf("Last Date: %s\n\n", n[j].last_date);
+        }
+    }
+}
+
+// find all notes
+void find_all_note(){
+    system("clear");
+    if(i == 0){
+        printf("\nNo Note Found :(\n");
+    }
+    for(int j = 0; j < i; j++){
+        printf("\nThe Note Details are\n");
+        printf("ID: %d\n", n[j].id);
+        printf("Title: %s\n", n[j].title);
+        printf("Description: %s\n", n[j].content);
+        printf("Last Date: %s\n", n[j].last_date);
+    }  
+}
+
+// user documentation
+void user_doc(){
+    system("clear");
+    printf("Whenever you give input for the \nnote title, description or last date \nyou need to write those data in the following format: \n\n");
+    printf("Title: my-note-title\n");
+    printf("Description: my_note_description\n");
+    printf("Last Date: my_note_last_date\n\n");
+    printf("github repo: https://github.com/maruf-sarker/gub-projects/tree/main/c/note-management-system");
+}
+
+// bug report
+void bug_report(){
+    system("clear");
+    printf("\n");
+    printf("when you delete a note, the note id will be updated automatically\n");
+}
+
+// exit the program
+int exit(){
+    system("clear");
+    printf("Are you sure you want to exit?\n");
+    printf("1. Yes\n");
+    printf("2. No\n");
+    int x;
+    scanf("%d", &x);
+    if(x == 1){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+// author information
+void author(){
+    system("clear");
+    printf("Author: Maruf Sarker\n");
+    printf("Github: https://github.com/mdmarufsarker\n");
+    printf("Email: mdmarufsarker.mms@gmail.com\n");
+    printf("Phone: +8801843579712\n");
+    printf("Website: https://marufsarker.netlify.app/\n");
+}
+
+// print sorry on the terminal
+void sorry(){
+    system("clear");
+    printf("##### ###### ##### ##### #       #\n");
+    printf("#     #    # #   # #   #  #     #\n");
+    printf("#     #    # #   # #   #   #   #\n");
+    printf("##### #    # ##### #####     #\n");
+    printf("    # #    # # #   # #       #\n");
+    printf("    # #    # #  #  #  #      #\n");
+    printf("##### ###### #   # #   #     #   ## ## ##\n");   
+}
+
+// login functionality
+void login(){
+    printf("Enter username: ");
+    char username[50];
+    scanf("%s", username);
+    fflush(stdin);
+    printf("Enter password: ");
+    char password[50];
+    scanf("%s", password);
+    fflush(stdin);
+
+    // Comparing username and password
+    if((!strcmp(username, "admin")) && (!strcmp(password, "admin"))){
+        system("clear");
+        while(1){
+            printf("\n\t\tNote Management System\t\t\n");
+            printf("---------------------------------------------------------\n\n");
+            printf("List of all available commands:\n");
+            printf("1. Add a new note\n");
+            printf("2. Delete a note\n");
+            printf("3. Update a note\n");
+            printf("4. Find a note by id\n");
+            printf("5. Find a note by title\n");
+            printf("6. Find all notes\n");
+            printf("7. Read the documentation\n");
+            printf("8. Author details\n");
+            printf("9. List of bugs\n");
+            printf("10. Exit\n");
+
+            printf("Enter your choice: ");
+            int choice;
+            scanf("%d", &choice);
+
+            switch(choice){
+                case 1:
+                    add_note();
+                    break;
+                case 2:
+                    del_note();
+                    break;
+                case 3:
+                    up_note();
+                    break;
+                case 4:
+                    find_note();
+                    break;
+                case 5:
+                    find_by_title();
+                    break;
+                case 6:
+                    find_all_note();
+                    break;
+                case 7:
+                    user_doc();
+                    break;
+                case 8:
+                    author();
+                    break;
+                case 9:
+                    bug_report();
+                    break;
+                case 10:
+                    exit();
+                    break;
+                default:
+                    printf("Invalid choice\n");
+                    break;
+            }
+        }
+    }else{
+        system("clear");
+        if(!strcmp(username, "admin")){
+            printf("Invalid Password\n");
+        }else if(!strcmp(password, "admin")){
+            printf("Invalid Username\n");
+        }else{
+            printf("Invalid Username and Password\n");
+        }
+        
+        
+    }
+}
+
+// global variables
+#define LEN 50
+char username[LEN] = "admin";
+char password[LEN] = "admin";
+
+// main function
+int main(){
+    int n = 3;
+    while(n > 0){
+        login();
+        n--;
+        printf("You have %d attempts left\n", n);
+    }
+    sorry();
+
+    return 0;
+}
