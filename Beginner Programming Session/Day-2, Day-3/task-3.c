@@ -2,13 +2,14 @@
 
 #include <stdio.h>
 
-int main() {
-    int number;
+int main(){
+    int n;
     printf("Enter a number: ");
-    scanf("%d", &number);
-    
-    printf("%d\n", number / 100);
-    printf("%d\n", (number / 10) % 10);
-    printf("%d\n", number % 10);
+    scanf("%d", &n);
+
+    printf("%d\n", n / 100);
+    printf("%d\n", (n / 10) % 10);
+    printf("%d\n", n % 10);
+
     return 0;
 }
