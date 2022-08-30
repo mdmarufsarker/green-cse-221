@@ -23,8 +23,29 @@ int main(){
         printf("Your input is out of range\n");
     }
 
+    // next prime number after the given number
+    // check if the given number is prime or not
+    temp = n;
+    if(temp >= 2 && temp <= 10000){
 
+    for (int i = temp + 1; i <= 10000; ++i) {
+        int flag = 0;
 
+        for(int j = 2; j < i / 2; j++){
+            if (i % j == 0) {
+            flag = 1;
+            break;
+        }
+        }
+
+        if(flag == 0){
+            printf("Next prime number is = %d\n", i);
+            break;
+        }
+      }
+    }else{
+        printf("Your input is out of range\n");
+    }
 
     return 0;
 }
