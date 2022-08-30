@@ -25,6 +25,9 @@ int main(){
 
     // next prime number after the given number
     // check if the given number is prime or not
+    
+    // printf("%d\n", temp); // reinitialize temporary variable
+    
     temp = n;
     if(temp >= 2 && temp <= 10000){
 
