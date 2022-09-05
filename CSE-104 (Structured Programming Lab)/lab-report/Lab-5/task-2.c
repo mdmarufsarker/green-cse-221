@@ -1,32 +1,30 @@
-/* Name					: Md. Maruf Sarker
- * Program				: BSC in CSE
- * Section				: 221 D4
- * Instructor			: Ahmed Iqbal Pritom
- * Date					: 19-7-22
- * problem name			: Print Fibonacci series until a given number. For instance, if a user wants to print Fibonacci series until
-1000, print all the Fibonacci number below 1000.
- * problem description	: Print Fibonacci series until a given number. For instance, if a user wants to print Fibonacci series until
-1000, print all the Fibonacci number below 1000.
- */
+// Write a program in C to get the largest element of an array using the function.
 
 #include <stdio.h>
+
+int lgElement(int arr[], int n){
+    int i, max = arr[0];
+    for(i = 1; i < n; i++){
+        if(arr[i] > max){
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
 int main() {
-
-    int i, n;
-    int t1 = 0, t2 = 1;
-    int next = t1 + t2;
-
-    printf("Enter the number of terms: ");
+    int n, max = 0;
+    printf("Enter the size of the array: ");
     scanf("%d", &n);
 
-    printf("Fibonacci Series: %d, %d, ", t1, t2);
+    int arr[n];
 
-    for (i = 3; i <= n; ++i) {
-        printf("%d, ", next);
-        t1 = t2;
-        t2 = next;
-        next = t1 + t2;
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
     }
 
-    return 0;
+    max = lgElement(arr, n);
+    printf("The largest element of the array is %d\n", max);
+
+return 0;
 }
