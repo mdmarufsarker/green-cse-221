@@ -11,31 +11,7 @@ int main() {
     scanf("%d", &t);
 
     while(t--){
-        char str1[50], str2[50], str3[50];
-        scanf("%s", str1);
-        scanf("%s", str2);
-        scanf("%s", str3);
-
-        int i = 0, j = 0, k = 0;
-        while (str1[i] != '\0') {
-            i++;
-        }
-        i--;
-        while(str2[j] != '\0') {
-            j++;
-        }
-        j--;
-        while(str3[k] != '\0') {
-            k++;
-        }
-        k--;
-        if(i > j && i > k){
-            result(i);
-        }else if(j > i && j > k){
-            result(j);
-        }else{
-            result(k);
-        }
+        
     }
 
 return 0;
