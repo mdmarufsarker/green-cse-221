@@ -14,7 +14,7 @@ int main()
     for(n = 0; s[n] != '\0'; n++);
  
     for(i = 0; i < n/2; i++){
-    	if(s[i] == s[n-i-1])
+    	if(s[i] == s[n - i - 1])
     	c++;
  	}
  	if(c==i)
