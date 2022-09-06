@@ -158,7 +158,7 @@ void bug_report(){
 
 int main(){
     while(1){
-        printf("\n\t\tNote Management System\t\t\n");
+        printf("\n\t\tTask Management System\t\t\n");
         printf("---------------------------------------------------------\n\n");
         printf("List of all available commands:\n");
         printf("1. Add a new note\n");
