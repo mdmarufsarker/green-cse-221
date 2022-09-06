@@ -1,4 +1,4 @@
-// Note Management System
+// Task Management System
 
 #include <stdio.h>
 #include <string.h>
@@ -6,47 +6,42 @@
 
 int i = 0;
 
-// structure of all notes
-struct note {
+// structure of all Tasks
+struct Task {
     char title[50];
     char content[500];
     char last_date[50];
     int id;
 } n[50];
 
-// add a new note
-void add_note(){
+// add a new Task
+void add_Task(){
     system("clear");
-    printf("Add the Note Details\n");
+    printf("Add the Task Details\n");
     printf("-------------------------\n");
     // bug solved
     // user theke string input nile fflush(stdin) run kora lage. noile problem face korte hoy
     // like input nite dey na/ title input dile baki 2 ta kaj kore na auto function theke ber hoye jay.
 
-    printf("Enter the Note Title: ");
-    // scanf("%s", n[i].title);
-    fgets(n[i].title, 50, stdin);
+    printf("Enter the Task Title: ");
+    scanf("%s", n[i].title);
     fflush(stdin);
-    printf("Enter the Note Content: ");
-    // scanf("%s", n[i].content);
-    fgets(n[i].content, 500, stdin);
+    printf("Enter the Task Content: ");
+    scanf("%s", n[i].content);
     fflush(stdin);
     printf("Enter the Last Date: ");
-    // scanf("%s", n[i].last_date);
-    fgets(n[i].last_date, 50, stdin);
+    scanf("%s", n[i].last_date);
     fflush(stdin);
-    // printf("Enter the Note ID\n");
-    // scanf("%d", &n[i].id);
     n[i].id = i;
     i = i + 1;
     system("clear");
 }
 
-// delete a single note
-void del_note(){
+// delete a single Task
+void del_Task(){
     system("clear");
     int x;
-    printf("Enter the Note ID\n");
+    printf("Enter the Task ID\n");
     scanf("%d", &x);
 
     for(int j = 0; j < i; j++){
@@ -57,17 +52,17 @@ void del_note(){
             i = i - 1;
         }
     }
-    printf("Note Deleted Successfully\n");
+    printf("Task Deleted Successfully\n");
 }
 
 // bug: update isn't working
 // bug solved used i but I have to use j
 
-// update a single note
-void up_note(){
+// update a single Task
+void up_Task(){
     system("clear");
     int x;
-    printf("Enter the Note ID\n");
+    printf("Enter the Task ID\n");
     scanf("%d", &x);
 
     for(int j = 0; j < i; j++){
@@ -82,13 +77,13 @@ void up_note(){
 
             switch(choice){
                 case 1:
-                    printf("Enter the Note Title: ");
+                    printf("Enter the Task Title: ");
                     scanf("%s", n[j].title);
                     // fgets(n[j].title, 50, stdin);
                     fflush(stdin);
                     break;
                 case 2:
-                    printf("Enter the Note Content: ");
+                    printf("Enter the Task Content: ");
                     scanf("%s", n[j].content);
                     // fgets(n[j].content, 500, stdin);
                     fflush(stdin);
@@ -105,14 +100,14 @@ void up_note(){
             }
         }
     }
-    printf("Note Updated Successfully\n");
+    printf("Task Updated Successfully\n");
 }
 
-// find a note by its title
+// find a Task by its title
 void find_by_title(){
     system("clear");
     char x[50];
-    printf("Enter the Note Title\n");
+    printf("Enter the Task Title\n");
     scanf("%s", x);
 
     for(int j = 0; j < i; j++){
@@ -121,7 +116,7 @@ void find_by_title(){
         // way - 1 strcmp(x, n[j].title) == 0
         // way - 2 (!strstr(n[j].title, x))
         if(strcmp(x, n[j].title) == 0){
-            printf("The Note Details are:\n");
+            printf("The Task Details are:\n");
             printf("ID: %d\n", n[j].id);
             printf("Title: %s\n", n[j].title);
             printf("Description: %s\n", n[j].content);
@@ -130,16 +125,16 @@ void find_by_title(){
     }
 }
 
-// find a single note
-void find_note(){
+// find a single Task
+void find_Task(){
     system("clear");
     int x;
-    printf("Enter the Note ID\n");
+    printf("Enter the Task ID\n");
     scanf("%d", &x);
 
     for(int j = 0; j < i; j++){
         if(x == n[j - 1].id){
-            printf("The Note Details are:\n");
+            printf("The Task Details are:\n");
             printf("ID: %d\n", n[j].id);
             printf("Title: %s\n", n[j].title);
             printf("Description: %s\n", n[j].content);
@@ -148,14 +143,14 @@ void find_note(){
     }
 }
 
-// find all notes
-void find_all_note(){
+// find all Tasks
+void find_all_Task(){
     system("clear");
     if(i == 0){
-        printf("\nNo Note Found :(\n");
+        printf("\nNo Task Found :(\n");
     }
     for(int j = 0; j < i; j++){
-        printf("\nThe Note Details are\n");
+        printf("\nThe Task Details are\n");
         printf("ID: %d\n", n[j].id);
         printf("Title: %s\n", n[j].title);
         printf("Description: %s\n", n[j].content);
@@ -166,18 +161,18 @@ void find_all_note(){
 // user documentation
 void user_doc(){
     system("clear");
-    printf("Whenever you give input for the \nnote title, description or last date \nyou need to write those data in the following format: \n\n");
-    printf("Title: my-note-title\n");
-    printf("Description: my_note_description\n");
-    printf("Last Date: my_note_last_date\n\n");
-    printf("github repo: https://github.com/maruf-sarker/gub-projects/tree/main/c/note-management-system");
+    printf("Whenever you give input for the \nTask title, description or last date \nyou need to write those data in the following format: \n\n");
+    printf("Title: my-Task-title\n");
+    printf("Description: my_Task_description\n");
+    printf("Last Date: my_Task_last_date\n\n");
+    printf("github repo: https://github.com/maruf-sarker/gub-projects/tree/main/c/Task-management-system");
 }
 
 // bug report
 void bug_report(){
     system("clear");
     printf("\n");
-    printf("when you delete a note, the note id will be updated automatically\n");
+    printf("when you delete a Task, the Task id will be updated automatically\n");
 }
 
 // exit the program
@@ -233,15 +228,15 @@ void login(){
     if((!strcmp(username, "admin")) && (!strcmp(password, "admin"))){
         system("clear");
         while(1){
-            printf("\n\t\tNote Management System\t\t\n");
+            printf("\n\t\tTask Management System\t\t\n");
             printf("---------------------------------------------------------\n\n");
             printf("List of all available commands:\n");
-            printf("1. Add a new note\n");
-            printf("2. Delete a note\n");
-            printf("3. Update a note\n");
-            printf("4. Find a note by id\n");
-            printf("5. Find a note by title\n");
-            printf("6. Find all notes\n");
+            printf("1. Add a new Task\n");
+            printf("2. Delete a Task\n");
+            printf("3. Update a Task\n");
+            printf("4. Find a Task by id\n");
+            printf("5. Find a Task by title\n");
+            printf("6. Find all Tasks\n");
             printf("7. Read the documentation\n");
             printf("8. Author details\n");
             printf("9. List of bugs\n");
@@ -253,22 +248,22 @@ void login(){
 
             switch(choice){
                 case 1:
-                    add_note();
+                    add_Task();
                     break;
                 case 2:
-                    del_note();
+                    del_Task();
                     break;
                 case 3:
-                    up_note();
+                    up_Task();
                     break;
                 case 4:
-                    find_note();
+                    find_Task();
                     break;
                 case 5:
                     find_by_title();
                     break;
                 case 6:
-                    find_all_note();
+                    find_all_Task();
                     break;
                 case 7:
                     user_doc();
