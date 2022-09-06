@@ -5,12 +5,10 @@
 
 int main(){
     char str[100];
-
     printf("Enter a string: ");
-    gets(str);
+    scanf("%s", str);
 
     int x = 0;
-    for(x; str[0] != '\0'; x++);
 
     int alphabets = 0, digits = 0, special_cha = 0;
 
@@ -19,13 +17,17 @@ int main(){
         if(str[i] >= '0' && str[i] <= '9'){
             digits++;
         }
-        if((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')){
+        else if((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= 'A' && str[i] <= 'Z')){
             alphabets++;
+        }else{
+            special_cha++;
         }
+        i++;
     }
 
     printf("Number of characters: %d\n", alphabets);
     printf("Number of digits: %d\n", digits);
+    printf("Number of special characters: %d\n", special_cha);
 
     return 0;
 }
