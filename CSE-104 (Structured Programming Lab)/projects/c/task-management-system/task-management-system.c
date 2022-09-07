@@ -176,20 +176,20 @@ void bug_report(){
 }
 
 // exit the program
-int exit(){
-    system("clear");
-    printf("Are you sure you want to exit?\n");
-    printf("1. Yes\n");
-    printf("2. No\n");
-    int x;
-    scanf("%d", &x);
-    if(x == 1){
-        return 1;
-    }
-    else{
-        return 0;
-    }
-}
+// int exit(){
+//     system("clear");
+//     printf("Are you sure you want to exit?\n");
+//     printf("1. Yes\n");
+//     printf("2. No\n");
+//     int x;
+//     scanf("%d", &x);
+//     if(x == 1){
+//         return 1;
+//     }
+//     else{
+//         return 0;
+//     }
+// }
 
 // author information
 void author(){
@@ -275,7 +275,7 @@ void login(){
                     bug_report();
                     break;
                 case 10:
-                    exit();
+                    exit(1);
                     break;
                 default:
                     printf("Invalid choice\n");
@@ -304,7 +304,7 @@ char password[LEN] = "admin";
 // main function
 int main(){
     int n = 3;
-    while(n > 0){
+    while(n != 10){
         login();
         n--;
         printf("You have %d attempts left\n", n);
