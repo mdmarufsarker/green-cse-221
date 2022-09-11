@@ -12,34 +12,24 @@ void character_extractor(int n){
         int digit = temp % 10;
         temp /= 10;
         if(digit == 1){
-            // printf("%c", '#');
             ch = '#';
         }else if(digit == 2){
-            // printf("%c", 'a');
             ch = 'a';
         }else if(digit == 3){
-            // printf("%c", 't');
             ch = 't';
         }else if(digit == 4){
-            // printf("%c", 'j');
             ch = 'j';
         }else if(digit == 5){
-            // printf("%c", '9');
             ch = '9';
         }else if(digit == 6){
-            // printf("%c", 'E');
             ch = 'E';
         }else if(digit == 7){
-            // printf("%c", '@');
             ch = '@';
         }else if(digit == 8){
-            // printf("%c", '2');
             ch = '2';
         }else if(digit == 9){
-            // printf("%c", 'F');
             ch = 'F';
         }else if(digit == 0){
-            // printf("%c", '?');
             ch = '?';
         }
         i++;

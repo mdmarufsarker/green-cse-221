@@ -19,20 +19,5 @@ freopen("output.txt", "w", stdout);
     }
 
     printf("%s\n", str);
-
-    // int a[100];
-    // FILE *fp;
-    // fp = fopen("input.txt", "r");
-
-    // int i = 0;
-    // char ch[100];
-    // while(!feof(fp)){
-    //     fgets(ch, 100, fp);
-    // }
-    // fclose(fp);
-    // for(i; ch[i] != '\0'; i++){
-    //     a[i] = ch[i] - 7;
-    //     printf("%c", a[i]);
-    // }
     return 0;
 }
