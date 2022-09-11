@@ -12,10 +12,18 @@ int decToBinder(int n){
 }
 
 int main() {
-    int n, i, rem, bin = 0;
-    scanf("%d", &n);
+#ifndef ONLINE_JUDGE
+freopen("input.txt", "r", stdin);
+freopen("output.txt", "w", stdout);
+#endif
+    int t;
+    scanf("%d", &t);
 
-    printf("%d\n", decToBinder(n));
+    while(t--){
+        int n;
+        scanf("%d", &n);
+        printf("%d\n", decToBinder(n));
+    }
 
     return 0;
 }

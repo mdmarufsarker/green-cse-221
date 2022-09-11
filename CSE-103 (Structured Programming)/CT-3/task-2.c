@@ -10,6 +10,10 @@ int length(char str[]) {
 }
 
 int main(){
+#ifndef ONLINE_JUDGE
+freopen("input.txt", "r", stdin);
+freopen("output.txt", "w", stdout);
+#endif
     char str[100];
     printf("Enter a string: ");
     scanf("%[^\n]s", str);

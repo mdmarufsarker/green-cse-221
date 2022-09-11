@@ -1,32 +1,38 @@
 // Write a program that will correctly decode a set of characters into a valid message. Your program should read a given file of a simple coded set of characters and print the exact message that the characters contain. The code key for this simple coding is a one for one character substitution based upon a single arithmetic manipulation of the printable portion of the ASCII character set.
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 int main(){
-    FILE *FP;
-    char ch;
+#ifndef ONLINE_JUDGE
+freopen("input.txt", "r", stdin);
+freopen("output.txt", "w", stdout);
+#endif
 
-    FP = fopen("input.txt", "r");
-    if(FP == NULL){
-        printf("Error opening file\n");
-        exit(1);
+    // decode the message
+    char str[100];
+    scanf("%[^\n]s", str);
+
+    int i = 0;
+    while (str[i] != '\0') {
+        str[i] = str[i] - 7;
+        i++;
     }
 
-    while((ch = fgetc(FP)) != EOF){
-        if(ch == ' '){
-            printf(" ");
-        }
-        else if(ch == '\n'){
-            printf("\n");
-        }
-        else{
-            printf("%c", ch - 1);
-        }
-    }
+    printf("%s\n", str);
 
-    fclose(FP);
+    // int a[100];
+    // FILE *fp;
+    // fp = fopen("input.txt", "r");
 
+    // int i = 0;
+    // char ch[100];
+    // while(!feof(fp)){
+    //     fgets(ch, 100, fp);
+    // }
+    // fclose(fp);
+    // for(i; ch[i] != '\0'; i++){
+    //     a[i] = ch[i] - 7;
+    //     printf("%c", a[i]);
+    // }
     return 0;
 }

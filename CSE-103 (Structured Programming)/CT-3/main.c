@@ -1,9 +1,9 @@
-// Cyber Security is a key issue to protect our daily documents and applications stored and submitted in various platforms. Having a robust encryption system to our generated password is very essential in this perspective. Your task is to create a nice and smooth encrypted password generator. Follow the instructions carefully to build the password generator.
-
 #include <stdio.h>
+
 void password_generator(char ch){
     printf("%c", ch);
 }
+
 void character_extractor(int n){
     int temp = n;
     int i = 0;
@@ -46,20 +46,18 @@ void character_extractor(int n){
         password_generator(ch);
     }
 }
-void Input_Number(int n){
-    // length of the number
-    int len = 0;
-    int temp = n;
-    while(temp != 0){
-        temp /= 10;
-        len++;
-    }
-    if(len != 5){
+
+void Input_Number(char str){
+    int x = 0;
+    for(x; str != '\0'; x++);
+
+    if(x != 5){
         printf("Wrong input\n");
     }else{
-        character_extractor(n);
+        character_extractor(str);
     }
 }
+
 int main(){
     int n;
     printf("Enter a 5 digit number: ");

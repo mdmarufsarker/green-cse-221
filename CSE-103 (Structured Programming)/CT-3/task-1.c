@@ -3,6 +3,10 @@
 #include <stdio.h>
 
 int main() {
+#ifndef ONLINE_JUDGE
+freopen("input.txt", "r", stdin);
+freopen("output.txt", "w", stdout);
+#endif
     char str1[100], str2[100];
     printf("Enter a string: ");
     scanf("%s", str1);
