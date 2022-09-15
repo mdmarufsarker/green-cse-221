@@ -8,8 +8,6 @@ int main(){
     printf("Enter a string: ");
     scanf("%s", str);
 
-    int x = 0;
-
     int alphabets = 0, digits = 0, special_cha = 0;
 
     int i = 0;
