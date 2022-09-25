@@ -133,7 +133,7 @@ void find_Task(){
     scanf("%d", &x);
 
     for(int j = 0; j < i; j++){
-        if(x == n[j - 1].id){
+        if(x == n[j].id){
             printf("The Task Details are:\n");
             printf("ID: %d\n", n[j].id);
             printf("Title: %s\n", n[j].title);
