@@ -11,7 +11,7 @@ int main(){
     int x, i;
     for(x = 0; str1[x] != '\0'; x++);
 
-    for(i = 0; str1[i]!='\0'; i++)
+    for(i = 0; str1[i] != '\0'; i++)
     {
         str2[i] = str1[i];
     }

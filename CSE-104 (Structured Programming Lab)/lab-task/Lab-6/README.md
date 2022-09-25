@@ -1,3 +1,5 @@
+# Questions
+
 1. Take n numbers in an array and print the sum and average of the numbers.
 2. Find all prime numbers in a given array.
 3. Find the maximum/minimum element of an array.

@@ -2,12 +2,12 @@
 
 #include <stdio.h>
 
-int decToBinder(int n){
+int decToBin(int n){
     if(n == 0){
         return 0;
     }
     else{
-        return (n % 2) + 10 * decToBinder(n / 2);
+        return (n % 2) + 10 * decToBin(n / 2);
     }
 }
 
@@ -22,7 +22,7 @@ freopen("output.txt", "w", stdout);
     while(t--){
         int n;
         scanf("%d", &n);
-        printf("%d\n", decToBinder(n));
+        printf("%d\n", decToBin(n));
     }
 
     return 0;

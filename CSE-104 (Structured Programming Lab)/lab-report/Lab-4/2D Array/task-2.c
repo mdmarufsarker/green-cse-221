@@ -18,16 +18,16 @@ int main() {
     printf("Enter the number of rows and columns of the second matrix: ");
     scanf("%d %d", &r2, &c2);
 
-    if (c1 != r2) {
-        printf("The matrices cannot be multiplied.");
-        return 0;
-    }
-
     printf("Enter the elements of the second matrix: \n");
     for (i = 0; i < r2; i++) {
         for (j = 0; j < c2; j++) {
             scanf("%d", &b[i][j]);
         }
+    }
+
+    if (c1 != r2) {
+        printf("The matrices cannot be multiplied.");
+        return 0;
     }
 
     for (i = 0; i < r1; i++) {
