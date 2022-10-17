@@ -1,9 +1,9 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 int binarySearch(int arr[], int t, int low, int high){
 	while(low <= high){
-		int mid = low + (high - low) / 2;
+		int mid = (low + high) / 2;
 		
 		if(arr[mid] == t) return mid;
 		if(arr[mid] < t) low = mid + 1;
@@ -22,6 +22,7 @@ int main(){
 	for(int i = 0; i < n; i++){
 		cin >> arr[i];
 	}
+	sort(arr, arr + n);
 	int t;
 	cout << "Enter your target value: ";
 	cin >> t;
@@ -29,7 +30,6 @@ int main(){
 	// binary search
 	int result = binarySearch(arr, t, 0, n);
 	
-	if(result == -1) cout << "Can't found your target value" << endl;
-	else cout << "Array element found on index " << result << endl;
+	// print the index...
 	return 0;
 }
