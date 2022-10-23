@@ -19,10 +19,6 @@ void add_Task(){
     system("clear");
     printf("Add the Task Details\n");
     printf("-------------------------\n");
-    // bug solved
-    // user theke string input nile fflush(stdin) run kora lage. noile problem face korte hoy
-    // like input nite dey na/ title input dile baki 2 ta kaj kore na auto function theke ber hoye jay.
-
     printf("Enter the Task Title: ");
     scanf("%s", n[i].title);
     fflush(stdin);
@@ -54,9 +50,6 @@ void del_Task(){
     }
     printf("Task Deleted Successfully\n");
 }
-
-// bug: update isn't working
-// bug solved used i but I have to use j
 
 // update a single Task
 void up_Task(){
@@ -111,10 +104,6 @@ void find_by_title(){
     scanf("%s", x);
 
     for(int j = 0; j < i; j++){
-        // it returns 0 if it is true
-        // so we need to use != 0
-        // way - 1 strcmp(x, n[j].title) == 0
-        // way - 2 (!strstr(n[j].title, x))
         if(strcmp(x, n[j].title) == 0){
             printf("The Task Details are:\n");
             printf("ID: %d\n", n[j].id);
@@ -174,22 +163,6 @@ void bug_report(){
     printf("\n");
     printf("when you delete a Task, the Task id will be updated automatically\n");
 }
-
-// exit the program
-// int exit(){
-//     system("clear");
-//     printf("Are you sure you want to exit?\n");
-//     printf("1. Yes\n");
-//     printf("2. No\n");
-//     int x;
-//     scanf("%d", &x);
-//     if(x == 1){
-//         return 1;
-//     }
-//     else{
-//         return 0;
-//     }
-// }
 
 // author information
 void author(){

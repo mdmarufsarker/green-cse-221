@@ -1,0 +1,1 @@
+// write a c program declaring an int array with 10 cells, take user input from index 0 to 9 and print only the odd elements of the array.
