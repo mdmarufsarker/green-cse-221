@@ -28,6 +28,6 @@ int main() {
 return 0;
 }
 
-&& --> Logical AND Operator
-|| --> Logical OR Operator
- ! --> Logical NOT Operator
+// && --> Logical AND Operator
+// || --> Logical OR Operator
+//  ! --> Logical NOT Operator
