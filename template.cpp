@@ -1,4 +1,4 @@
-//  Write a problem 
+// Write a program
 
 #include <bits/stdc++.h>
 using namespace std;
