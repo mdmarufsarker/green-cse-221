@@ -1,55 +1,94 @@
-// solve this problem
-// A + B * C + D
+// infix to postfix --> resources collected from neso academy and jenny's lectures
 
-// ABC*+D+
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
 
-#include <bits/stdc++.h>
-using namespace std;
+#define n 50
+int top=-1;
 
-char myStack[50], top = -1;
+char infix[n], postfix[n], stack[n];
+int isEmpty(){
+    if (top==-1)
+        return 1;
+    else return 0;
+}
 
-void push(int val){
-    if(top >= size - 1)
-        cout << "Stack is full.\n";
+int precedence(char symbol){
+    switch(symbol){
+    case '^':
+        return 3;
+    case '*':
+    case '/':
+        return 2;
+    case '+':
+    case '-':
+        return 1;
+    default :
+        return 0;
+    }
+}
+
+void push(char c){
+    if (top==n-1){
+        return ;
+    }
     else{
         top++;
-        myStack[top] = val;
-        cout << "Inserted element: " << myStack[top] << endl;
+        stack[top]=c;
     }
 }
-void pop(){
-    if(top <= -1){
-        cout << "No element to delete.\n";
+
+char pop(){
+    char c;
+    if (top==-1){
+        return;
     }
     else{
-        cout << "The popped element = " << myStack[top] << endl;
+        c=stack[top];
         top--;
+        return c;
     }
 }
-
-int precedence(char c){
-    if (c == '^') return 3;
-    else if (c == '/' || c == '*') return 2;
-    else if (c == '+' || c == '-') return 1;
-    else return -1;
-}
-
-void infixToPostfix(string s){
-    string result;
- 
-    for (int i = 0; i < s.length(); i++) {
-        char c = s[i];
-        if (c >= 'A' && c <= 'Z') result += c;
-
-        if() 
+void inToPost(){
+    char symbol,next;
+    int i=0,j=0;
+    while(infix[i] !='\0'){
+        symbol=infix[i];
+        switch(symbol){
+        case '(' :
+            push(symbol);
+            break;
+        case ')':{
+            next=pop();
+            while(next !='(')
+                postfix[j++]=next;
+            break;
+            }
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+        case '^':{
+            while(!isEmpty() && precedence(stack[top])>=precedence(symbol))
+                postfix[j++]=pop();
+            push(symbol);
+            break;
+           }
+        default :
+            postfix[j++]=symbol;
+        }
+        i++;
     }
-    cout << result << endl;
+    while(!isEmpty()){
+        postfix[j++]=pop();
+        postfix[j]='\0';
+    }
+    puts(postfix);
 }
-
-
 int main(){
-    string exp = 'A+B*C+D'
+    printf("Enter Infix Expression : ");
+    gets(infix);
 
-    infixToPostfix(exp);
-    return 0;
+    inToPost();
 }
