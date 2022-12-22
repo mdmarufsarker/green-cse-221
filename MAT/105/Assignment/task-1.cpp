@@ -6,30 +6,43 @@
 using namespace std;
 
 int main(){
-    // taking the points from the user
-    int x1, y1, x2, y2, x3, y3;
-    cout << "Enter the first point: ";
-    cin >> x1 >> y1;
-    cout << "Enter the second point: ";
-    cin >> x2 >> y2;
-    cout << "Enter the third point: ";
-    cin >> x3 >> y3;
+    int i, j, k, order;
+    float M[20][20], r, p[100000], sum = 0.0;
 
-    // calculating the coefficients of the polynomial
-    int a0 = y1;
-    int a1 = (y2 - y1) / (x2 - x1);
-    int a2 = ((y3 - y1) / (x3 - x1)) - a1;
-
-    // printing the coefficients of the polynomial
-    cout << "The coefficients of the polynomial are: " << a0 << " " << a1 << " " << a2 << endl;
-
-    // plotting the graph of the polynomial
-    int x = x1;
-    while(x <= x3){
-        int y = a0 + a1 * x + a2 * x * x;
-        cout << "(" << x << ", " << y << ")" << endl;
-        x++;
+    cout << "Enter the order of matrix: ";
+    cin >> order;
+    cout << "Enter the augmented matrix: " << endl;
+    for(i = 1; i <= order; i++)
+        for(j = 1; j <= (order + 1); j++)
+            cin >> M[i][j];
+    cout << endl;
+    
+    cout << "Augmented Matrix: " << endl;
+    for(i = 1; i <= order; i++){
+        for(j = 1; j <= order + 1; j++)
+            cout << M[i][j] << "\t";
+        cout << endl;
     }
 
-    return 0;
+    for(j = 1; j <= order; j++)
+        for(i = 1; i <= order; i++)
+            if(i > j){
+                r = M[i][j] / M[j][j];
+                for(k = 1; k <= order + 1; k++)
+                    M[i][k] = M[i][k] - r * M[j][k];
+            }
+
+    p[order] = M[order][order + 1] / M[order][order];
+    for(i = order - 1; i >= 1; i--){
+        sum=0.0;
+        for(j = i + 1; j <= order; j++)
+            sum = sum + M[i][j] * p[j];
+        
+        p[i] = (M[i][order + 1] - sum) / M[i][i];
+    }
+    
+    cout << "\nSolution: " << endl;
+    cout << "p = " << p[1] << endl;
+    cout << "q = " << p[2] << endl;
+    cout << "r = " << p[3] << endl;
 }
