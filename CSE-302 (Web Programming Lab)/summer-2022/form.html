@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        html, body{
+            font-family: sans-serif;
+        }
+        div{
+            padding: 10px 0;
+            display: flex;
+        }
+        label{
+            width: 150px;
+        }
+    </style>
+</head>
+<body style="background-color: bisque;">
+    <form action="#" style="background-color: aliceblue; padding: 20px; width: fit-content; margin: 0 auto;">
+        <h1 style="color: rgb(233, 71, 71)">Student Registration Form</h1>
+        <div>
+            <label for="firstname">First Name</label>
+            <input type="text">
+        </div>
+        <div>
+            <label for="lastname">Last Name</label>
+            <input type="text">
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input type="email">
+        </div>
+        <div>
+            <label for="gender">Gender</label>
+            <input type="radio" name="gendar">
+            <span>Male</span>
+            <input type="radio" name="gendar">
+            <span>Female</span>
+        </div>
+        <div>
+            <label for="subjects">Choose Subjects</label>
+            <input type="checkbox">
+            <span>OOP</span>
+            <input type="checkbox">
+            <span>Database</span>
+            <input type="checkbox">
+            <span>Web Technologies</span>
+            <input type="checkbox">
+            <span>Android Dev</span>
+        </div>
+        <div>
+            <label for="comments">Comments</label>
+            <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Description comes here..."></textarea>
+        </div>
+        <div>
+            <label for="city">City</label>
+            <select name="city" id="city">
+                <option value="dhaka">Dhaka</option>
+                <option value="chittagong">Chittagong</option>
+                <option value="khulna">Khulna</option>
+                <option value="rajshahi">Rajshahi</option>
+                <option value="barishal">Barishal</option>
+                <option value="sylhet">Sylhet</option>
+                <option value="rangpur">Rangpur</option>
+            </select>
+        </div>
+        <div style="margin-left: 350px;">
+            <input type="reset" value="Reset" style="padding: 5px 10px">
+            <input type="submit" value="Submit" style="padding: 5px 10px; background-color: rgb(233, 71, 71);">
+        </div>
+    </form>
+</body>
+</html>
