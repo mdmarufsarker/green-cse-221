@@ -1,71 +1,57 @@
+/*
+ * Green University of Bangladesh
+ * Department of Computer Science and Engineering
+ * CSE-201 (Object Oriented Programming)
+ * Name     : Md. Maruf Sarker
+ * ID       : 221002063
+ * Section  : D4
+ * Email    : marufsarkercse2022@gmail.com
+ */
+
 import java.util.*;
 
 public class Basics{
+    static Scanner sc = new Scanner(System.in);
     static void largeAndSmallNumber(){
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Large and Small Number Calculate");
         System.out.print("Enter three numbers: ");
         int x = sc.nextInt();
         int y = sc.nextInt();
         int z = sc.nextInt();
 
-        // ternary operator
         int large = (x > y) ? ((x > z) ? x : z) : ((y > z) ? y : z);
         System.out.println("Largest number: " + large);
         int small = (x < y) ? ((x < z) ? x : z) : ((y < z) ? y : z);
         System.out.println("Smallest number: " + small);
-
-        sc.close();
     }
     static void leapYear(){
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Leap Year Calculate");
         System.out.print("Enter the year: ");
         int year = sc.nextInt();
 
-        if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
-            System.out.println("Leap Year");
-        else
-            System.out.println("Not a Leap Year");
-        sc.close();
+        if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) System.out.println("Leap Year");
+        else System.out.println("Not a Leap Year");
     }
     static void primeNumber(){
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Prime Number Calculate");
         System.out.print("Enter the number: ");
         int num = sc.nextInt();
         int count = 0;
 
-        for(int i = 1; i <= num; i++){
-            if(num % i == 0)
-                count++;
-        }
-        if(count == 2)
-            System.out.println("Prime Number");
-        else
-            System.out.println("Not a Prime Number");
-        sc.close();
+        for(int i = 1; i <= num; i++) if(num % i == 0) count++;
+        if(count == 2) System.out.println("Prime Number");
+        else System.out.println("Not a Prime Number");
     }
     static void factorial(){
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Factorial Calculate");
         System.out.print("Enter the number: ");
         int num = sc.nextInt();
         int fact = 1;
 
-        for(int i = 1; i <= num; i++){
-            fact *= i;
-        }
+        for(int i = 1; i <= num; i++) fact *= i;
         System.out.println(fact);
-        sc.close();
     }
     static void fibonacci(){
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Fibonacci Series");
         System.out.print("Enter the number of terms: ");
         int num = sc.nextInt();
@@ -77,11 +63,8 @@ public class Basics{
             a = b;
             b = c;
         }
-        sc.close();
     }
     static void armstrong(){
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Armstrong Number");
         System.out.print("Enter the number: ");
         int num = sc.nextInt();
@@ -93,15 +76,10 @@ public class Basics{
             sum += rem * rem * rem;
             temp /= 10;
         }
-        if(sum == num)
-            System.out.println("Armstrong Number");
-        else
-            System.out.println("Not an Armstrong Number");
-        sc.close();
+        if(sum == num) System.out.println("Armstrong Number");
+        else System.out.println("Not an Armstrong Number");
     }
     static void palindrome(){
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Palindrome Number");
         System.out.print("Enter the number: ");
         int num = sc.nextInt();
@@ -113,15 +91,10 @@ public class Basics{
             rev = rev * 10 + rem;
             temp /= 10;
         }
-        if(rev == num)
-            System.out.println("Palindrome Number");
-        else
-            System.out.println("Not a Palindrome Number");
-        sc.close();
+        if(rev == num) System.out.println("Palindrome Number");
+        else System.out.println("Not a Palindrome Number");
     }
     static void reverseNumber(){
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Reverse Number");
         System.out.print("Enter the number: ");
         int num = sc.nextInt();
@@ -134,11 +107,8 @@ public class Basics{
             temp /= 10;
         }
         System.out.println(rev);
-        sc.close();
     }
     static void sumOfDigits(){
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Sum of Digits");
         System.out.print("Enter the number: ");
         int num = sc.nextInt();
@@ -151,20 +121,15 @@ public class Basics{
             temp /= 10;
         }
         System.out.println(sum);
-        sc.close();
     }
     static void binarySearch(){
-        Scanner sc = new Scanner(System.in);
-
         System.out.println("Binary Search");
         System.out.print("Enter the size of the array: ");
         int n = sc.nextInt();
         int[] arr = new int[n];
 
         System.out.println("Enter the elements of the array: ");
-        for(int i = 0; i < n; i++){
-            arr[i] = sc.nextInt();
-        }
+        for(int i = 0; i < n; i++) arr[i] = sc.nextInt();
 
         // sorting the array in ascending order using bubble sort
         for(int i = 0; i < n - 1; i++){
@@ -189,27 +154,79 @@ public class Basics{
                 flag = true;
                 break;
             }
-            else if(arr[mid] < key)
-                low = mid + 1;
-            else
-                high = mid - 1;
+            else if(arr[mid] < key) low = mid + 1;
+            else high = mid - 1;
         }
-        if(flag)
-            System.out.println("Element found at index: " + mid);
-        else
-            System.out.println("Element not found");
-        sc.close();
+        if(flag) System.out.println("Element found at index: " + mid);
+        else System.out.println("Element not found");
+    }
+    static void menu(){
+        System.out.println("1. Large and Small Number");
+        System.out.println("2. Leap Year");
+        System.out.println("3. Prime Number");
+        System.out.println("4. Factorial");
+        System.out.println("5. Fibonacci Series");
+        System.out.println("6. Armstrong Number");
+        System.out.println("7. Palindrome Number");
+        System.out.println("8. Reverse Number");
+        System.out.println("9. Sum of Digits");
+        System.out.println("10. Binary Search");
+        System.out.println("11. Exit");
     }
     public static void main(String[] args) {
-        largeAndSmallNumber();
-        leapYear();
-        primeNumber();
-        factorial();
-        fibonacci();
-        armstrong();
-        palindrome();
-        reverseNumber();
-        sumOfDigits();
-        binarySearch();
+        int choice;
+        do{
+            System.out.println("\n\nJava Basic Programs");
+            menu();
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+
+            switch(choice){
+                case 1:
+                    System.out.print("\033[H\033[2J");
+                    largeAndSmallNumber();
+                    break;
+                case 2:
+                    System.out.print("\033[H\033[2J");
+                    leapYear();
+                    break;
+                case 3:
+                    System.out.print("\033[H\033[2J");
+                    primeNumber();
+                    break;
+                case 4:
+                    System.out.print("\033[H\033[2J");
+                    factorial();
+                    break;
+                case 5:
+                    System.out.print("\033[H\033[2J");
+                    fibonacci();
+                    break;
+                case 6:
+                    System.out.print("\033[H\033[2J");
+                    armstrong();
+                    break;
+                case 7:
+                    System.out.print("\033[H\033[2J");
+                    palindrome();
+                    break;
+                case 8:
+                    System.out.print("\033[H\033[2J");
+                    reverseNumber();
+                    break;
+                case 9:
+                    System.out.print("\033[H\033[2J");
+                    sumOfDigits();
+                    break;
+                case 10:
+                    System.out.print("\033[H\033[2J");
+                    binarySearch();
+                    break;
+                case 11:
+                    System.out.print("\033[H\033[2J");
+                    System.out.println("Thank you for using the program\n");
+                    break;
+            }
+        }while(choice != 11);
     }
 }
