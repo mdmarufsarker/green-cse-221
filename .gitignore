@@ -4,5 +4,7 @@ main
 
 input.txt
 output.txt
+error.txt
 
-c-programming
+*.class
+*.o
