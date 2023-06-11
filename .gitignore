@@ -8,3 +8,5 @@ error.txt
 
 *.class
 *.o
+.env
+env
