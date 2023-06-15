@@ -7,6 +7,10 @@
  *
  * @author maruf
  */
+
+import java.sql.*;
+import javax.swing.*;
+
 public class Remove_Books extends javax.swing.JFrame {
 
     /**
@@ -14,6 +18,7 @@ public class Remove_Books extends javax.swing.JFrame {
      */
     public Remove_Books() {
         initComponents();
+        setDefaultCloseOperation(Remove_Books.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -25,21 +30,110 @@ public class Remove_Books extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        t1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        exit = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Noto Sans Mono", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Remove Book");
+
+        jLabel2.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
+        jLabel2.setText("BOOK ID");
+
+        exit.setBackground(new java.awt.Color(255, 102, 102));
+        exit.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
+        exit.setText("EXIT");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
+
+        delete.setBackground(new java.awt.Color(255, 102, 102));
+        delete.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
+        delete.setText("DELETE");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+        String url = "jdbc:mysql://localhost/WalkingBookfairManagement";
+        String user = "root";
+        String pwd = "root";
+        
+        String input = t1.getText();
+        String query = "delete from Books where BOOK_ID='"+input+"' or BOOK_NAME='"+input+"';";
+        
+        try{
+            Connection conn = DriverManager.getConnection(url, user, pwd);
+            Statement stm = conn.createStatement();
+            
+            int rows = stm.executeUpdate(query);
+            
+            if(rows > 0){
+                JOptionPane.showMessageDialog(this, "Book removed from Library");
+            }else{
+                JOptionPane.showMessageDialog(this,"No such book available");
+            }
+            
+            stm.close();
+        }catch(Exception err){
+            JOptionPane.showMessageDialog(this, err.getMessage());
+        }
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +171,10 @@ public class Remove_Books extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton delete;
+    private javax.swing.JButton exit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField t1;
     // End of variables declaration//GEN-END:variables
 }

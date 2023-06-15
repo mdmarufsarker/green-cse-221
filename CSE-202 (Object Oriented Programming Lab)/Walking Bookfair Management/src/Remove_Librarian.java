@@ -7,6 +7,10 @@
  *
  * @author maruf
  */
+
+import java.sql.*;
+import javax.swing.*;
+
 public class Remove_Librarian extends javax.swing.JFrame {
 
     /**
@@ -14,6 +18,7 @@ public class Remove_Librarian extends javax.swing.JFrame {
      */
     public Remove_Librarian() {
         initComponents();
+        setDefaultCloseOperation(Remove_Librarian.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -25,21 +30,110 @@ public class Remove_Librarian extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        t1 = new javax.swing.JTextField();
+        exit = new javax.swing.JButton();
+        delete = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Noto Sans Mono", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Remove Librarian");
+
+        jLabel2.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
+        jLabel2.setText("LIBRARIAN ID");
+
+        exit.setBackground(new java.awt.Color(255, 102, 102));
+        exit.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
+        exit.setText("EXIT");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
+            }
+        });
+
+        delete.setBackground(new java.awt.Color(255, 102, 102));
+        delete.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
+        delete.setText("DELETE");
+        delete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(t1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed
+        // TODO add your handling code here:
+        String url = "jdbc:mysql://localhost/WalkingBookfairManagement";
+        String user = "root";
+        String pwd = "root";
+        
+        String input = t1.getText();
+        String query = "delete from Librarian where USER_ID='"+input+"' or NAME='"+input+"';";
+        
+        try{
+            Connection conn = DriverManager.getConnection(url, user, pwd);
+            Statement stm = conn.createStatement();
+            
+            int rows = stm.executeUpdate(query);
+            
+            if(rows > 0){
+                JOptionPane.showMessageDialog(this, "Librarian removed from Library");
+            }else{
+                JOptionPane.showMessageDialog(this,"No such librarian available");
+            }
+            
+            stm.close();
+        }catch(Exception err){
+            JOptionPane.showMessageDialog(this, err.getMessage());
+        }
+    }//GEN-LAST:event_deleteActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -77,5 +171,10 @@ public class Remove_Librarian extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton delete;
+    private javax.swing.JButton exit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JTextField t1;
     // End of variables declaration//GEN-END:variables
 }
