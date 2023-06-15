@@ -3,22 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+
 /**
  *
  * @author maruf
  */
 
 import java.sql.*;
-import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.*;
 
-public class BooksAvailable extends javax.swing.JFrame {
+public class Librarian_Details extends javax.swing.JFrame {
 
     /**
-     * Creates new form BooksAvailable
+     * Creates new form Staff_Details
      */
-    public BooksAvailable() {
+    public Librarian_Details() {
         initComponents();
+        setDefaultCloseOperation(Librarian_Details.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -32,8 +34,8 @@ public class BooksAvailable extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        back = new javax.swing.JButton();
         fetch = new javax.swing.JButton();
+        exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,27 +46,27 @@ public class BooksAvailable extends javax.swing.JFrame {
 
             },
             new String [] {
-                "BOOK ID", "CATEGORY", "BOOK NAME", "AUTHOR", "QUANTITY"
+                "USER_ID", "NAME", "CONTACT"
             }
         ));
         jTable1.setRowHeight(30);
         jScrollPane1.setViewportView(jTable1);
 
-        back.setBackground(new java.awt.Color(255, 102, 102));
-        back.setFont(new java.awt.Font("Noto Sans Mono", 1, 24)); // NOI18N
-        back.setText("Back");
-        back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backActionPerformed(evt);
-            }
-        });
-
         fetch.setBackground(new java.awt.Color(102, 255, 102));
-        fetch.setFont(new java.awt.Font("Noto Sans Mono", 1, 24)); // NOI18N
+        fetch.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
         fetch.setText("Fetch Data");
         fetch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fetchActionPerformed(evt);
+            }
+        });
+
+        exit.setBackground(new java.awt.Color(255, 102, 102));
+        exit.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
+        exit.setText("Exit");
+        exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitActionPerformed(evt);
             }
         });
 
@@ -73,35 +75,30 @@ public class BooksAvailable extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 887, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(fetch, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(199, 199, 199))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 752, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(167, 167, 167)
+                .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107)
+                .addComponent(fetch)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 498, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fetch, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fetch, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_backActionPerformed
 
     private void fetchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetchActionPerformed
         // TODO add your handling code here:
@@ -109,28 +106,32 @@ public class BooksAvailable extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost/WalkingBookfairManagement";
         String user = "root";
         String pwd = "root";
-
-        String query = "select * from Books";
+        String query = "select * from Librarian;";
+        
         try{
             Connection conn = DriverManager.getConnection(url, user, pwd);
             Statement stm = conn.createStatement();
+            
             ResultSet rs = stm.executeQuery(query);
-
             while(rs.next()){
-                String bookid = rs.getString("BOOK_ID");
-                String category = rs.getString("CATEGORY");
-                String name = rs.getString("BOOK_NAME");
-                String author = rs.getString("AUTHOR");
-                int quantity = rs.getInt("QUANTITY");
-
-                model.addRow(new Object[] {bookid, category, name, author, quantity});
+                String librarianID = rs.getString("USER_ID");
+                String name = rs.getString("NAME");
+                int contact = rs.getInt("CONTACT");
+                
+                model.addRow(new Object[] {librarianID, name, contact});
             }
+            
             rs.close();
             stm.close();
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(this, e.getMessage());
+        }catch(Exception err){
+            JOptionPane.showMessageDialog(this, err.getMessage());
         }
     }//GEN-LAST:event_fetchActionPerformed
+
+    private void exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_exitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,26 +150,27 @@ public class BooksAvailable extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BooksAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Librarian_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BooksAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Librarian_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BooksAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Librarian_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BooksAvailable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Librarian_Details.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BooksAvailable().setVisible(true);
+                new Librarian_Details().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton back;
+    private javax.swing.JButton exit;
     private javax.swing.JButton fetch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

@@ -10,3 +10,5 @@ error.txt
 *.o
 .env
 env
+/CSE-202 (Object Oriented Programming Lab)/test/build/
+/CSE-202 (Object Oriented Programming Lab)/test/nbproject/private/
