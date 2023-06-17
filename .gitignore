@@ -6,7 +6,7 @@ input.txt
 output.txt
 error.txt
 
-*.class
+
 *.o
 .env
 env
