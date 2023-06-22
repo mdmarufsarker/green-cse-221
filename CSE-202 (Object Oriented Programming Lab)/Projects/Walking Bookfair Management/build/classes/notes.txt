@@ -74,28 +74,28 @@ mysql> select * from Books;
 +---------+------------+-------------------------------------+------------------------+----------+
 
 
-create table Librarian
+create table User
     (USER_ID VARCHAR(50) PRIMARY KEY,
     NAME VARCHAR(50),
     CONTACT VARCHAR(11));
 
-insert into Librarian values ('L001', 'Maruf Sarker', '01843579712');
-insert into Librarian values ('L002', 'Rakibul Islam', '01847163702');
-insert into Librarian values ('L003', 'Sakib Islam', '01847116557');
-insert into Librarian values ('L004', 'Asif Ahmed', '01847807949');
-insert into Librarian values ('L005', 'Lisan Islam', '01839753310');
-insert into Librarian values ('L006', 'Shohag Khan', '01874400682');
-insert into Librarian values ('L007', 'Fartin Fuad', '01860247698');
-insert into Librarian values ('L008', 'Mahady Hasan Fahim', '01897034155');
-insert into Librarian values ('L009', 'Tamim Iqbal', '01841338168');
-insert into Librarian values ('L010', 'Shanta Islam', '01816160634');
-insert into Librarian values ('L011', 'Md. Sohel', '01899593719');
-insert into Librarian values ('L012', 'Meherun Nesa Enta', '01816107809');
-insert into Librarian values ('L013', 'Jabed Hasan', '01878973640');
-insert into Librarian values ('L014', 'Tanvir Ahmed', '01867644945');
-insert into Librarian values ('L015', 'Md. Labib', '01815455966');
+insert into User values ('U001', 'Maruf Sarker', '01843579712');
+insert into User values ('U002', 'Rakibul Islam', '01847163702');
+insert into User values ('U003', 'Sakib Islam', '01847116557');
+insert into User values ('U004', 'Asif Ahmed', '01847807949');
+insert into User values ('U005', 'Lisan Islam', '01839753310');
+insert into User values ('U006', 'Shohag Khan', '01874400682');
+insert into User values ('U007', 'Fartin Fuad', '01860247698');
+insert into User values ('U008', 'Mahady Hasan Fahim', '01897034155');
+insert into User values ('U009', 'Tamim Iqbal', '01841338168');
+insert into User values ('U010', 'Shanta Islam', '01816160634');
+insert into User values ('U011', 'Md. Sohel', '01899593719');
+insert into User values ('U012', 'Meherun Nesa Enta', '01816107809');
+insert into User values ('U013', 'Jabed Hasan', '01878973640');
+insert into User values ('U014', 'Tanvir Ahmed', '01867644945');
+insert into User values ('U015', 'Md. Labib', '01815455966');
 
-mysql> select * from Librarian;
+mysql> select * from User;
 +---------+--------------------+-------------+
 | USER_ID | NAME               | CONTACT     |
 +---------+--------------------+-------------+

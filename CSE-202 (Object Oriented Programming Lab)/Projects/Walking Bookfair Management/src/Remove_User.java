@@ -11,14 +11,14 @@
 import java.sql.*;
 import javax.swing.*;
 
-public class Remove_Librarian extends javax.swing.JFrame {
+public class Remove_User extends javax.swing.JFrame {
 
     /**
      * Creates new form Remove_Librarian
      */
-    public Remove_Librarian() {
+    public Remove_User() {
         initComponents();
-        setDefaultCloseOperation(Remove_Librarian.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(Remove_User.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -110,7 +110,7 @@ public class Remove_Librarian extends javax.swing.JFrame {
         String pwd = "root";
         
         String input = t1.getText();
-        String query = "delete from Librarian where USER_ID='"+input+"' or NAME='"+input+"';";
+        String query = "delete from USER where USER_ID='"+input+"' or NAME='"+input+"';";
         
         try{
             Connection conn = DriverManager.getConnection(url, user, pwd);
@@ -152,20 +152,23 @@ public class Remove_Librarian extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Remove_Librarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Remove_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Remove_Librarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Remove_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Remove_Librarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Remove_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Remove_Librarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Remove_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Remove_Librarian().setVisible(true);
+                new Remove_User().setVisible(true);
             }
         });
     }

@@ -11,14 +11,14 @@
 import java.sql.*;
 import javax.swing.*;
 
-public class Add_Librarian extends javax.swing.JFrame {
+public class Add_User extends javax.swing.JFrame {
 
     /**
      * Creates new form Add_Librarian
      */
-    public Add_Librarian() {
+    public Add_User() {
         initComponents();
-        setDefaultCloseOperation(Add_Librarian.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(Add_User.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -137,7 +137,7 @@ public class Add_Librarian extends javax.swing.JFrame {
         String url = "jdbc:mysql://localhost/WalkingBookfairManagement";
         String user = "root";
         String pwd = "root";
-        String query = "insert into Librarian values(?, ?, ?);";
+        String query = "insert into USER values(?, ?, ?);";
         
         String id = t1.getText();
         String name = t2.getText();
@@ -184,20 +184,21 @@ public class Add_Librarian extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Add_Librarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Add_Librarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Add_Librarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Add_Librarian.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Add_User.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Add_Librarian().setVisible(true);
+                new Add_User().setVisible(true);
             }
         });
     }

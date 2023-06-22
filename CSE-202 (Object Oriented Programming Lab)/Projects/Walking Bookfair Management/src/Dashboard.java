@@ -32,6 +32,8 @@ public class Dashboard extends javax.swing.JFrame {
         b4 = new javax.swing.JButton();
         b5 = new javax.swing.JButton();
         b6 = new javax.swing.JButton();
+        giveBook = new javax.swing.JButton();
+        receiveBook = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 255, 204));
@@ -70,7 +72,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         b4.setBackground(new java.awt.Color(255, 102, 102));
         b4.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
-        b4.setText("Librarian Details");
+        b4.setText("User Details");
         b4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b4ActionPerformed(evt);
@@ -79,7 +81,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         b5.setBackground(new java.awt.Color(255, 102, 102));
         b5.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
-        b5.setText("Add Librarian");
+        b5.setText("Add User");
         b5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b5ActionPerformed(evt);
@@ -88,10 +90,28 @@ public class Dashboard extends javax.swing.JFrame {
 
         b6.setBackground(new java.awt.Color(255, 102, 102));
         b6.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
-        b6.setText("Remove Librarian");
+        b6.setText("Remove User");
         b6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b6ActionPerformed(evt);
+            }
+        });
+
+        giveBook.setBackground(new java.awt.Color(255, 102, 102));
+        giveBook.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
+        giveBook.setText("Give Book");
+        giveBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                giveBookActionPerformed(evt);
+            }
+        });
+
+        receiveBook.setBackground(new java.awt.Color(255, 102, 102));
+        receiveBook.setFont(new java.awt.Font("Noto Sans Mono", 1, 18)); // NOI18N
+        receiveBook.setText("Receive Book");
+        receiveBook.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                receiveBookActionPerformed(evt);
             }
         });
 
@@ -104,12 +124,14 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(b2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(b1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                    .addComponent(b3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(b3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(giveBook, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(b4)
-                    .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(b5, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                    .addComponent(b6, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                    .addComponent(b4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(receiveBook, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(81, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -121,19 +143,23 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(74, 74, 74)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(b1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(81, 81, 81))
+                    .addComponent(b5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(b3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(b6, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(giveBook, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(receiveBook, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(53, 53, 53))
         );
 
         pack();
@@ -153,19 +179,19 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
         // TODO add your handling code here:
-        Librarian_Details librarian = new Librarian_Details();
+        User_Details librarian = new User_Details();
         librarian.setVisible(true);
     }//GEN-LAST:event_b4ActionPerformed
 
     private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
         // TODO add your handling code here:
-        Add_Librarian librarian = new Add_Librarian();
+        Add_User librarian = new Add_User();
         librarian.setVisible(true);
     }//GEN-LAST:event_b5ActionPerformed
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
         // TODO add your handling code here:
-        Remove_Librarian librarian = new Remove_Librarian();
+        Remove_User librarian = new Remove_User();
         librarian.setVisible(true);
     }//GEN-LAST:event_b6ActionPerformed
 
@@ -174,6 +200,18 @@ public class Dashboard extends javax.swing.JFrame {
         Remove_Books books = new Remove_Books();
         books.setVisible(true);
     }//GEN-LAST:event_b3ActionPerformed
+
+    private void giveBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giveBookActionPerformed
+        // TODO add your handling code here:
+        GiveBook books = new GiveBook();
+        books.setVisible(true);
+    }//GEN-LAST:event_giveBookActionPerformed
+
+    private void receiveBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receiveBookActionPerformed
+        // TODO add your handling code here:
+        ReceiveBook books = new ReceiveBook();
+        books.setVisible(true);
+    }//GEN-LAST:event_receiveBookActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,6 +255,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton b4;
     private javax.swing.JButton b5;
     private javax.swing.JButton b6;
+    private javax.swing.JButton giveBook;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton receiveBook;
     // End of variables declaration//GEN-END:variables
 }
