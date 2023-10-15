@@ -1,6 +1,11 @@
 a.out
 node_modules
 main
+tmp
+
+build
+nbproject
+test
 
 input.txt
 output.txt
@@ -18,3 +23,5 @@ env
 /CSE-202 (Object Oriented Programming Lab)/PhoneBook/build/
 /CSE-202 (Object Oriented Programming Lab)/Java-CurrencyConverter/nbproject/private/
 /CSE-202 (Object Oriented Programming Lab)/Java-CurrencyConverter/build/
+/CSE-206 (Algorithm Lab)/Sorting Algorithms/nbproject/private/
+/CSE-206 (Algorithm Lab)/Sorting Algorithms/build/
