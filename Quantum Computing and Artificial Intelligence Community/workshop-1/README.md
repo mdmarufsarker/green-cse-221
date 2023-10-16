@@ -16,13 +16,14 @@
 - [x] [loops in python 2](https://www.notion.so/looping-a8047ff12c214e8cb31d60e68204d880?pvs=4)
 - [x] Assignment 1
 - [x] Assignment 2
+- [x] Assignment 3
 
 ---
 
 ## Topic to be finished
 
-- [ ] Assignment 3
-- [ ] Core Math Part
+Core Math Part
+
 - [ ] [chapter 0 - chapter 6](https://www.3blue1brown.com/topics/linear-algebra)
 - [ ] [3blue1brown LA notes](https://drive.google.com/file/d/1Ixad7-4KvRhpteZnjbGHp0i-keaRUA1X/view?usp=sharing)
 - [ ] [Core Quantum mechanics part](https://learning.edx.org/course/course-v1:StanfordOnline+SOE-YEEQMSE01+1T2023/home)
