@@ -10,14 +10,25 @@
 
 t = int(input())
 
+# prime check using seive of eratosthenes
+def seive(num):
+    # ternary operator
+    if num == 1:
+        return False
+    if num == 2:
+        return True
+    if num % 2 == 0:
+        return False
+    i = 3
+    while i * i <= num:
+        if num % i == 0:
+            return False
+        i += 2
+    return True
+
 for i in range(t):
     num = int(input())
-    isPrime = True
-    for j in range(2, num):
-        if num % j == 0:
-            isPrime = False
-            break
-    if isPrime:
+    if seive(num):
         print(f"{num} is prime")
     else:
         print(f"{num} is not prime")

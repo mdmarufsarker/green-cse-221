@@ -1,55 +1,98 @@
-.model small
-.stack 100h
-.data
-    msg1 db 10,13,"Enter first number : $"
-    msg2 db 10,13,"Enter second number : $"
-    msg3 db 10,13,"Result : $"
-    num1 db ?
-    num2 db ?
-    prod1 db ?
+.MODEL SMALL
+.STACK 100H
+.DATA
+	MSG1 DB 10,13,"ENTER FIRST NUMBER : $"
+	MSG2 DB 10,13,"ENTER SECOND NUMBER : $"
+	MSG3 DB 10,13,"RESULT 1 : $"
+    MSG4 DB 10,13,"RESULT 2 : $"
 
-.code
-main proc
-    ; user input part
-    mov ax,@data
-    mov ds,ax
+	NUM1 DB ?
+	NUM2 DB ?
+	RESULT DB ?
 
-    mov ah,09h
-    lea dx,msg1
+.CODE
+MAIN PROC
+    ; data segment
+	MOV AX, @DATA
+	MOV DS, AX
+
+    ; print msg1
+	MOV AH, 09H
+	LEA DX, MSG1
+	INT 21H
+
+    ; read num1 --> convert it to number --> store it in NUM1
+	MOV AH, 01H
+	INT 21H
+	SUB AL, 30H
+	MOV NUM1, AL
+
+    ; print msg2
+	MOV AH, 09H
+	LEA DX, MSG2
+	INT 21H
+
+    ; read num2 --> convert it to number --> store it in NUM2
+	MOV AH, 01H
+	INT 21H
+	SUB AL, 30H
+	MOV NUM2, AL
+
+    ; multiply num1 and num2 --> store it in AL --> convert it to character --> store it in RESULT
+	MOV AL, NUM1
+	MUL NUM2
+	ADD AL, 30H
+	MOV RESULT, AL
+
+    ; print msg3
+	MOV AH, 09H
+	LEA DX, MSG3
+	INT 21H
+
+    ; print result
+	MOV AH, 02H
+	MOV DL, RESULT
+	INT 21H
+
+    ; new line
+    mov ah, 2
+    mov dl, 10
+    int 21h
+    mov dl, 13
     int 21h
 
-    mov ah,01h
+    ; new line
+    mov ah, 2
+    mov dl, 10
+    int 21h
+    mov dl, 13
     int 21h
 
-    sub al,30h
-    mov num1,al
+    ; print 2 * 4 = 8
+    ; print msg3
+    MOV AH, 09H
+    LEA DX, MSG4
+    INT 21H
 
-    mov ah,09h
-    lea dx,msg2
-    int 21h
+    MOV AL, 2
+    MOV BL, 4
+    MUL BL
+    ADD AL,30H
+    MOV BL,AL
 
-    mov ah,01h
-    int 21h
+    ; display 
+    MOV AH, 2
+    MOV DL, BL
+    INT 21H
 
-    sub al,30h
-    mov num2,al
+    MOV AH, 2
+    MOV DL, 0DH
+    INT 21H
+    MOV DL, 0AH
+    INT 21H
 
-    ; multiplication part
-    mov al,num1
-    mul num2
-    mov prod1,al
-
-    ; display part
-    mov ah,09h
-    lea dx,msg3
-    int 21h
-
-    mov dl,prod1
-    add dl,30h
-    mov ah,02h
-    int 21h
-
-    mov ah,4ch
-    int 21h
-main endp
-end main
+    ; exit
+	MOV AH, 4CH
+	INT 21H
+MAIN ENDP
+END MAIN

@@ -30,3 +30,20 @@ for i in b:
     if i in difference:
         difference.remove(i)
 print(difference)
+
+
+# using set operations
+ans1 = a | b
+ans2 = a - b
+
+print(ans1)
+print(ans2)
+
+'''
+{1, 2, 3, 4, 5, 6, 7, 8}
+{1, 2, 3}
+{1, 2, 3, 4, 5, 6, 7, 8}
+{1, 2, 3}
+{1, 2, 3, 4, 5, 6, 7, 8}
+{1, 2, 3}
+'''
