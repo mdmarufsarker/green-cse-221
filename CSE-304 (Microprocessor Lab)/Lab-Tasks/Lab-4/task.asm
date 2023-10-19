@@ -20,6 +20,11 @@ main proc
 
     printn ''
 
+    ; shortcut
+    mov si, 11          
+    mov msg[si], '$'
+
+    ; brute force approach
     mov si, 11
     mov msg[si], 00
     mov si, 12
