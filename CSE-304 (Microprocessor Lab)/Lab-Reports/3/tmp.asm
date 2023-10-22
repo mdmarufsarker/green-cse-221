@@ -29,49 +29,30 @@ main proc
 
     ; perform the operation
     ; brute force approach
-    
-    ; store first value of id string into a register
-    mov al, id
-    mov si, 2
-    mov my_name[si], al
-
-    ; store second value of id string into a register
-    mov bl, id + 1
     mov si, 2
     mov my_name[si], '2'
 
-    ; store third value of id string into a register
-    mov al, id + 2
+    mov si, 2
+    mov my_name[si], '2'
+
     mov si, 1
     mov my_name[si], '1'
 
-    ; store fourth value of id string into a register
-    mov bl, id + 3
     mov si, 0
     mov my_name[si], '0'
 
-    ; store fifth value of id string into a register
-    mov al, id + 4
     mov si, 0
     mov my_name[si], '0'
 
-    ; store sixth value of id string into a register
-    mov bl, id + 5
     mov si, 2
     mov my_name[si], '2'
-
-    ; store seventh value of id string into a register
-    mov al, id + 6
+    
     mov si, 0
     mov my_name[si], '0'
 
-    ; store eighth value of id string into a register
-    mov bl, id + 7
     mov si, 6
     mov my_name[si], '6'
 
-    ; store ninth value of id string into a register
-    mov al, id + 8
     mov si, 3
     mov my_name[si], '3'
 
