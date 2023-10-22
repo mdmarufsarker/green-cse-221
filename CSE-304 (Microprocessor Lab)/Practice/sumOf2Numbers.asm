@@ -54,7 +54,7 @@ main proc
 
     ; add n1 and n2
     add bl, bh
-    sub bl, 48  ; sub krte gele 48 sub krte hoy
+    sub bl, 48  ; sum krte gele 48 sub krte hoy
     mov res, bl
 
     ; print result
