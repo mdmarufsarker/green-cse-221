@@ -25,7 +25,7 @@ const Sidebar = () => {
 
   return (
     <div className="text-white">
-      <Card className="bg-sidebar text-white h-screen w-full max-w-[20rem] p-4 rounded-none font-body">
+      <Card className="bg-black text-white h-screen w-full max-w-[20rem] p-4 rounded-none font-body">
         <div className="mb-2 p-2">
           <Typography variant="h5">Algo Visualizer</Typography>
         </div>
@@ -41,10 +41,10 @@ const Sidebar = () => {
               />
             }
           >
-            <ListItem className="p-0 hover:bg-sidebar" selected={open === 3}>
+            <ListItem className="p-0 hover:bg-black " selected={open === 3}>
               <AccordionHeader
                 onClick={() => handleOpen(1)}
-                className="p-3 bg-sidebar rounded-lg outline-none border-none w-full hover:bg-sidebarHover text-yellow hover:text-yellow"
+                className="p-3 bg-black  rounded-lg outline-none border-none w-full hover:bg-black Hover text-yellow hover:text-yellow"
               >
                 <ListItemPrefix>
                   <BiSearchAlt className="h-5 w-5 text-yellow" />
@@ -57,7 +57,7 @@ const Sidebar = () => {
             <Link to="/linear-search">
               <AccordionBody className="py-1">
                 <List className="p-0 ">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -69,7 +69,7 @@ const Sidebar = () => {
             <Link to="/binary-search">
               <AccordionBody className="py-1">
                 <List className="p-0">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -90,10 +90,10 @@ const Sidebar = () => {
               />
             }
           >
-            <ListItem className="p-0 hover:bg-sidebar" selected={open === 2}>
+            <ListItem className="p-0 hover:bg-black " selected={open === 2}>
               <AccordionHeader
                 onClick={() => handleOpen(2)}
-                className="p-3 bg-sidebar rounded-lg outline-none border-none w-full hover:bg-sidebarHover text-yellow hover:text-yellow"
+                className="p-3 bg-black  rounded-lg outline-none border-none w-full hover:bg-black Hover text-yellow hover:text-yellow"
               >
                 <ListItemPrefix>
                   <GiNetworkBars className="h-5 w-5 text-yellow" />
@@ -106,7 +106,7 @@ const Sidebar = () => {
             <Link to="/bubble-sort">
               <AccordionBody className="py-1">
                 <List className="p-0 ">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -118,7 +118,7 @@ const Sidebar = () => {
             <Link to="/counting-sort">
               <AccordionBody className="py-1">
                 <List className="p-0 ">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -130,7 +130,7 @@ const Sidebar = () => {
             <Link to="/heap-sort">
               <AccordionBody className="py-1">
                 <List className="p-0 ">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -142,7 +142,7 @@ const Sidebar = () => {
             <Link to="/insertion-sort">
               <AccordionBody className="py-1">
                 <List className="p-0 ">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -154,7 +154,7 @@ const Sidebar = () => {
             <Link to="/merge-sort">
               <AccordionBody className="py-1">
                 <List className="p-0 ">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -166,7 +166,7 @@ const Sidebar = () => {
             <Link to="/quick-sort">
               <AccordionBody className="py-1">
                 <List className="p-0 ">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -178,7 +178,7 @@ const Sidebar = () => {
             <Link to="/radix-sort">
               <AccordionBody className="py-1">
                 <List className="p-0 ">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -190,7 +190,7 @@ const Sidebar = () => {
             <Link to="/selection-sort">
               <AccordionBody className="py-1">
                 <List className="p-0 ">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -211,10 +211,10 @@ const Sidebar = () => {
               />
             }
           >
-            <ListItem className="p-0 hover:bg-sidebar" selected={open === 3}>
+            <ListItem className="p-0 hover:bg-black " selected={open === 3}>
               <AccordionHeader
                 onClick={() => handleOpen(3)}
-                className="p-3 bg-sidebar rounded-lg outline-none border-none w-full hover:bg-sidebarHover text-yellow hover:text-yellow"
+                className="p-3 bg-black  rounded-lg outline-none border-none w-full hover:bg-black Hover text-yellow hover:text-yellow"
               >
                 <ListItemPrefix>
                   <GrNodes className="h-5 w-5 bg-yellow rounded-full p-[0.9px]" />
@@ -227,7 +227,7 @@ const Sidebar = () => {
             <Link to="/bfs-search">
               <AccordionBody className="py-1">
                 <List className="p-0 ">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -239,7 +239,7 @@ const Sidebar = () => {
             <Link to="/dfs-search">
               <AccordionBody className="py-1">
                 <List className="p-0 ">
-                  <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
                     <ListItemPrefix>
                       <FaFeatherAlt className="h-5 w-5" />
                     </ListItemPrefix>
@@ -249,7 +249,7 @@ const Sidebar = () => {
               </AccordionBody>
             </Link>
           </Accordion>
-          {/* <ListItem className="text-white hover:text-yellow bg-sidebar hover:bg-sidebarHover ">
+          {/* <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
             <ListItemPrefix>
               <Cog6ToothIcon className="h-7 w-7 text-yellow rounded-full p-1" />
             </ListItemPrefix>
