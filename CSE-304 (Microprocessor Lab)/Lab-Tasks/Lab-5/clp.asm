@@ -19,25 +19,49 @@ INCLUDE 'emu8086.inc'
     ; SINCE MY ID IS ODD I HAVE TO PROVE N1 < N2 ? IF YES THEN PRINT SMALLER NUMBER
     ; IF SOMEONES ID IS EVEN THEN HE/SHE HAVE TO PROVE N1 > N2 ? IF YES THEN PRINT GREATER NUMBER
     
-    ; first input
-    mov ah, 1   ; function 1, read char from keyboard
-    int 21h     ; call DOS
-    mov bl, al  ; save char in bl
+    PRINTN 'CONTINIOUS LAB PERFORMANCE'
+    
+    PRINTN ''
+    PRINT 'FIRST NUMBER'
+    MOV AH, 1
+    INT 21H
+    MOV BL, AL 
+    ;SUB BL, 48    
 
-    ; second input
-    mov ah, 1   ; function 1, read char from keyboard
-    int 21h     ; call DOS
-    mov bh, al  ; save char in bh
+    ; second input   
+    PRINT ''
+    PRINT 'SECOND NUMBER'
+    MOV AH, 1
+    INT 21H
+    MOV BH, AL
+    ;SUB BH, 48   
      
-    CMP bl, bh
-    JL LESS ; (JL) JUMP LESS
-    JMP LESS
+    CMP BL, BH
+    JL LESS ; (JL) JUMP LESS  
+    
+    LEVEL:
+        PRINTN ''
+        PRINT 'SMALLER NUMBER: '
+        MOV AH, 02H
+        MOV DL, BH
+        INT 21H
+        JMP ENDOFFILE
     
     LESS:
-        PRINTN 'SMALLER NUMBER'
+        PRINTN ''
+        PRINT 'SMALLER NUMBER: '
+        MOV AH, 02H
+        MOV DL, BL
+        INT 21H
+        
+     ENDOFFILE:   
+        PRINTN ''
+        PRINT 'PROGRAM ENDS'
+     
     
      MOV AH,4CH
      INT 21H
      MAIN ENDP
  END MAIN
+    
     
