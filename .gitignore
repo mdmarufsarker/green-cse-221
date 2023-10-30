@@ -2,6 +2,7 @@ a.out
 node_modules
 main
 tmp
+cs-with-maruf
 
 build
 nbproject
