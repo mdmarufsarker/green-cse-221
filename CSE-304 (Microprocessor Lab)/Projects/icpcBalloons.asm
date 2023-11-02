@@ -690,50 +690,57 @@ main proc
     printn ''
     printn ''
 
-    ; print result
-    ; if a = b = c = d = e = 1 the increment them 1 to 2
-    cmp a, 1
-    je a1
-    jne not_a1
+    ; calculation part
+    cmp a, 0
+    je cnt_b
+    jne inc_a
 
-    a1:
-    inc a
-    not_a1:
+    inc_a:
+    inc a 
     
+    cnt_b:
+    cmp b, 0
+    je cnt_c
+    jne inc_b
 
-    cmp b, 1
-    je b1
-    jne not_b1
+    inc_b:
+    inc b
 
-    cmp c, 1
-    je c1
-    jne not_c1
+    cnt_c:
+    cmp c, 0
+    je cnt_d
+    jne inc_c
 
-    cmp d, 1
-    je d1
-    jne not_d1
+    inc_c:
+    inc c
 
-    cmp e, 1
-    je e1
-    jne not_e1
+    cnt_d:
+    cmp d, 0
+    je cnt_e
+    jne inc_d
 
+    inc_d:
+    inc d
 
-    ; sum of a, b, c, d, e and store it in res
-    not_a1:
-    not_b1:
-    not_c1:
-    not_d1:
-    not_e1:
+    cnt_e:
+    cmp e, 0
+    je result
+    jne inc_e
+
+    inc_e:
+    inc e
+
+    result:
+    ; sum of all frequencies
     mov al, a
     add al, b
     add al, c
     add al, d
     add al, e
-    mov res, al
 
     ; print result
     print 'Result: '
-    mov dl, res
+    mov dl, al
     add dl, 48
     mov ah, 2
     int 21h
@@ -743,3 +750,4 @@ main proc
     int 21h
 main endp
 end main
+
