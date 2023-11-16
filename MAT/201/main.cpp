@@ -194,6 +194,119 @@ void median_mode(){
     dbg(l1, fc, fm, d1, d2, c);
 }
 
+void measures(){
+    double fi = 0, cf = 0;
+    // cout << "Enter number of rows: ";
+    int n;
+    cin >> n;
+    cout << endl;
+
+    int fi_sum = 0;
+    vector<pair<int, int>> classInterval(n);
+    vector<int> data;
+    vector<int> cummulativeFrequency;
+
+    double l1, fc, fm, c;
+
+    for(auto &x: classInterval){
+        // cout << "Enter class interval: ";
+        cin >> x.first >> x.second;
+        // cout << "Enter frequency: ";
+        cin >> fi;
+        fi_sum += fi;
+        data.push_back(fi);
+        cf += fi;
+        cummulativeFrequency.push_back(cf);
+    }
+
+    cout << "Interval\t(fi)\tcf" << endl;
+    for(int i = 0; i < n; i++){
+        cout << classInterval[i].first << "-" << classInterval[i].second << "\t\t" << data[i] << "\t\t" << cummulativeFrequency[i] << endl;
+    }
+
+    double upperQuartile, lowerQuartile, decile, percentile;
+
+    // Upper Quartile, Q3 = L + ((((3*n/4) - fc)/fm) * c)
+    double row = 3 * fi_sum / 4.0;
+    int index = 0;
+    for(int i = 0; i < n; i++){
+        if(cummulativeFrequency[i] > row){
+            index = i;
+            break;
+        }
+    }
+
+    l1 = classInterval[index].first;
+    fc = cummulativeFrequency[index - 1];
+    fm = data[index];
+    c = 10;
+
+    cout << "Upper Quartile, Q3 = L + ((((3*n/4) - fc)/fm) * c)" << endl;
+    dbg(row, index, l1, fc, fm, c);
+    upperQuartile = l1 + (((row - fc) / fm) * c);
+    cout << "Q3: " << upperQuartile << endl;
+
+    // Lower Quartile, Q1 = L + ((((n/4) - fc)/fm) * c)
+    row = fi_sum / 4.0;
+    index = 0;
+    for(int i = 0; i < n; i++){
+        if(cummulativeFrequency[i] > row){
+            index = i;
+            break;
+        }
+    }
+
+    l1 = classInterval[index].first;
+    fc = cummulativeFrequency[index - 1];
+    fm = data[index];
+
+    cout << "Lower Quartile, Q1 = L + ((((n/4) - fc)/fq) * c)" << endl;
+    dbg(row, index, l1, fc, fm, c);
+    lowerQuartile = l1 + (((row - fc) / fm) * c);
+    cout << "Q1: " << lowerQuartile << endl;
+
+    // Decile, D = L + ((((n*i/10) - fc)/fd) * c)
+    cout << "Decile, D = L + ((((n*i/10) - fc)/fd) * c)" << endl;
+    double i;
+    cin >> i;
+    row = fi_sum * i / 10.0;
+    index = 0;
+    for(int i = 0; i < n; i++){
+        if(cummulativeFrequency[i] > row){
+            index = i;
+            break;
+        }
+    }
+
+    l1 = classInterval[index].first;
+    fc = cummulativeFrequency[index - 1];
+    fm = data[index];
+
+    dbg(row, index, l1, fc, fm, c);
+    decile = l1 + (((row - fc) / fm) * c);
+    cout << "D" << i << ": " << decile << endl;
+
+    // Percentile, P = L + ((((n*i/100) - fc)/fm) * c)
+    cout << "Percentile, P = L + ((((n*i/100) - fc)/fp) * c)" << endl;
+    cin >> i;
+    row = fi_sum * i / 100.0;
+    index = 0;
+    for(int i = 0; i < n; i++){
+        if(cummulativeFrequency[i] > row){
+            index = i;
+            break;
+        }
+    }
+
+    l1 = classInterval[index].first;
+    fc = cummulativeFrequency[index - 1];
+    fm = data[index];
+
+    dbg(row, index, l1, fc, fm, c);
+    percentile = l1 + (((row - fc) / fm) * c);
+    cout << "P" << i << ": " << percentile << endl;
+}
+
 int main(){
     maruf();
     cout << "1.\tBasic Q/A" << endl;
@@ -221,6 +334,9 @@ int main(){
             break;
         case 5:
             median_mode();
+            break;
+        case 6:
+            measures();
             break;
         default:
             cout << "Invalid choice" << endl;
