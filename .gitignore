@@ -2,6 +2,7 @@ a.out
 node_modules
 main
 tmp
+cs-with-maruf
 
 build
 nbproject
@@ -25,3 +26,4 @@ env
 /CSE-202 (Object Oriented Programming Lab)/Java-CurrencyConverter/build/
 /CSE-206 (Algorithm Lab)/Sorting Algorithms/nbproject/private/
 /CSE-206 (Algorithm Lab)/Sorting Algorithms/build/
+sorting-visualizer
