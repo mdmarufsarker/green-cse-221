@@ -18,7 +18,6 @@ MAIN PROC
     
     CALL TEST1                  
     PRINTN 'AFTER CALLING TEST'
-    PRINTN 'AFTER CALLING TEST'
     CALL PRINT_NUM
     POP CX
     MOV AX, CX    
