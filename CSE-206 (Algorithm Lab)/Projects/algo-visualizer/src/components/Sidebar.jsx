@@ -248,6 +248,18 @@ const Sidebar = () => {
                 </List>
               </AccordionBody>
             </Link>
+            <Link to="/dijkstra">
+              <AccordionBody className="py-1">
+                <List className="p-0 ">
+                  <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
+                    <ListItemPrefix>
+                      <FaFeatherAlt className="h-5 w-5" />
+                    </ListItemPrefix>
+                    Dijkstra
+                  </ListItem>
+                </List>
+              </AccordionBody>
+            </Link>
           </Accordion>
           {/* <ListItem className="text-white hover:text-yellow bg-black  hover:bg-black Hover ">
             <ListItemPrefix>

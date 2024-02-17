@@ -7,7 +7,7 @@ include 'emu8086.inc'
 
 .data
     msg1 db "Enter the length of the string: $"
-    msg2 db "Enter the string: $"
+    msg2 db "Enter the string(A-E): $"
     sz db ?
     cnt db 0
     res db ?

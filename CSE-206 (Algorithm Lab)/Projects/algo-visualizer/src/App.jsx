@@ -12,8 +12,8 @@ function App() {
           <div className="flex flex-col">
             <Sidebar />
           </div>
-          <div className="flex flex-col">
-            <Header />
+          <div className="flex flex-col w-full">
+            {/* <Header /> */}
             <Routes>
               {routes.map((route, index) => {
                 return (

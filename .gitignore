@@ -4,10 +4,6 @@ main
 tmp
 cs-with-maruf
 
-build
-nbproject
-test
-
 input.txt
 output.txt
 error.txt
