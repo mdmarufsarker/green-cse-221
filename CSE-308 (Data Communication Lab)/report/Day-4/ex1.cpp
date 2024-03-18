@@ -32,7 +32,7 @@ int main() {
     cout << "Enter your data: ";
     string s; getline(cin, s);
 
-    string ans = "GALF";
+    string key = "GALF", ans = "";
     for(int i = 0; i < s.size(); i++){
         if(s[i] == 'G' and s[i + 1] == 'A' and s[i + 2] == 'L' and s[i + 3] == 'F'){
             ans += "EPACSEGALF";
@@ -45,5 +45,5 @@ int main() {
         }
     }
 
-    cout << endl << ans + "GALF" << endl;
+    cout << endl << key + ans + key << endl;
 }
