@@ -1,21 +1,19 @@
 #include <bits/stdc++.h>
+#include <debug.h>
 using namespace std;
 
-int main()
-{
-    int n;
-    cin >> n;
-    vector<int> v(n);
-    for (int i = 0; i < n; i++)
-    {
-        int x;
-        cin >> x;
-        v.push_back(x);
+int main(){
+    string s;
+    vector<string> str(1000);
+    int t = 180;
+    str.clear();
+    while(t--){
+        getline(cin, s);
+        str.push_back(s);
     }
-    sort(v.rbegin(), v.rend());
-    for (auto r : v)
-    {
-        cout << r << " ";
+    // dbg(str);
+    for(auto i : str){
+        cout << i << "," << endl;
     }
     cout << endl;
 }
