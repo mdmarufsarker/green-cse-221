@@ -1,8 +1,8 @@
 -- Create the database
-CREATE DATABASE IF NOT EXISTS ecommerce_db;
+CREATE DATABASE IF NOT EXISTS ecommerce_db1;
 
 -- Use the database
-USE ecommerce_db;
+USE ecommerce_db1;
 
 -- Create the tables
 
