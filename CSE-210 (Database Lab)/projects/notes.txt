@@ -1,0 +1,1 @@
+need a script which will write the output in a single file instead of multiple file. and in the previous answer the list size was so small and have few information. Now I need those list having much more valid information. maybe the list size is 1000. so that when generating 10000 lines I will have such a result which doesn't repeat same information multiple times.
