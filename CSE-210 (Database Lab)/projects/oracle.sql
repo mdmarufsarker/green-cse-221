@@ -1,5 +1,5 @@
-CREATE DATABASE edu_system;
-USE edu_system;
+CREATE DATABASE school_db;
+USE school_db;
 
 CREATE TABLE Addresses (
     address_id NUMBER PRIMARY KEY,
