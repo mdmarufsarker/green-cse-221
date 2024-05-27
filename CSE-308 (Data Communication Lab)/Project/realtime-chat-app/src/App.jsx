@@ -1,7 +1,8 @@
 import Details from "./components/Details/Details";
 import List from "./components/List/List";
-import Login from "./components/Login/Login";
+import Auth from "./components/Auth/Auth";
 import Chat from "./components/chat/Chat";
+import Notification from "./components/Notification/Notification";
 
 const App = () => {
   const user = false;
@@ -14,12 +15,9 @@ const App = () => {
           <Details />
         </>
       ) : (
-        <Login />
+        <Auth />
       )}
-
-      {/* <List />
-      <Chat />
-      <Details /> */}
+      <Notification />
     </div>
   );
 };

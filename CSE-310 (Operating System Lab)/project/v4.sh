@@ -112,6 +112,7 @@ delete_note() {
 register() {
     read -p "Enter your username: " username
     read -s -p "Enter your password: " password
+    echo
     hash=$(echo -n $password | sha256sum | awk '{print $1}')
     if ! grep -q "\"username\": \"$username\"" users.json; then
         jq ". += [{\"username\": \"$username\", \"password\": \"$hash\"}]" users.json > temp.json
@@ -128,7 +129,8 @@ register() {
 login() {
     read -p "Enter your username: " username
     read -s -p "Enter your password: " password
-    hash=$(echo -n $hash | sha256sum | awk '{print $1}')
+    echo
+    hash=$(echo -n $password | sha256sum | awk '{print $1}')
     if grep -q "\"username\": \"$username\", \"password\": \"$hash\"" users.json; then
         main_menu
     else

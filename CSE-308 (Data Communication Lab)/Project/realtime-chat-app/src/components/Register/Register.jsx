@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./Login.css";
+import { toast } from "react-toastify";
+import "./Register.css";
 
 const Login = () => {
   const [avatar, setAvatar] = useState({
@@ -15,29 +16,32 @@ const Login = () => {
       });
     }
   };
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    // const usr = e.target.username.value;
+    // const pass = e.target.password.value;
+    // const pp = e.target.avatar.files[0];
+    // if (!usr || !pass || !pp) {
+    //   return toast.error("Please fill all the fields");
+    // }
+
+    const formData = new FormData(e.target);
+    const { username, password, avatar } = Object.fromEntries(formData);
+    console.log(username);
+    // e.target.reset();
+  };
   return (
-    <div className="login">
-      <div className="item">
-        <h2>Welcome back,</h2>
-        <form>
-          <input type="text" placeholder="Enter your email" name="email" />
-          <input
-            type="password"
-            placeholder="Enter your password"
-            name="password"
-          />
-          <button>Sign In</button>
-        </form>
-      </div>
-      <div className="separator"></div>
+    <div className="register">
       <div className="item">
         <h2>Create an Account</h2>
-        <form>
+        <form onSubmit={handleRegister}>
           <input
             type="text"
             placeholder="Enter your username"
             name="username"
           />
+          <input type="text" placeholder="Enter your email" name="email" />
           <input
             type="password"
             placeholder="Enter your password"
@@ -45,7 +49,8 @@ const Login = () => {
           />
           <label htmlFor="file">
             <img src={avatar.url || "./avatar.png"} alt="" />
-            Upload an image</label>
+            Upload an image
+          </label>
           <input
             type="file"
             name=""
