@@ -4,7 +4,7 @@ import { db } from "../../../../lib/firebase";
 import { query, where } from "firebase/firestore";
 import { getDocs } from "firebase/firestore";
 import { useState } from "react";
-import { doc, setDoc} from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore";
 import { serverTimestamp } from "firebase/firestore";
 import { arrayUnion } from "firebase/firestore";
 import { useUserStore } from "../../../../lib/userStore";

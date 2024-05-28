@@ -8,20 +8,7 @@ export const useChatStore = create((set) => ({
   isReceiverBlocked: false,
   changeChat: (chatId, user) => {
     const currentUser = useUserStore.getState().currentUser;
-
-    // // Log currentUser and user for debugging
-    // console.log("currentUser:", currentUser);
-    // console.log("user:", user);
-    // // Check if currentUser and user are defined
-    // if (!currentUser) {
-    //   console.error("currentUser is undefined");
-    //   return;
-    // }
-    // if (!user) {
-    //   console.error("user is undefined");
-    //   return;
-    // }
-
+    
     // Check if the user is blocked
     if (user.blocked.includes(currentUser.id)) {
       return set({
