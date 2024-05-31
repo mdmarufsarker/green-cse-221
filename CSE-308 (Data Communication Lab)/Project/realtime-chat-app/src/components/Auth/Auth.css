@@ -1,9 +1,9 @@
 .login {
-  width: 100%;
-  height: 100%;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 100px;
+  width: 80vw;
+  height: 90vh;
 
   .item {
     flex: 1;
@@ -46,7 +46,8 @@
         }
       }
 
-      button {
+      .signIn,
+      .signUp {
         width: 100%;
         padding: 20px;
         border: none;
@@ -55,6 +56,38 @@
         cursor: pointer;
         border-radius: 5px;
         font-weight: 500;
+
+        &:disabled {
+          background-color: #7f7f7f;
+          cursor: not-allowed;
+        }
+      }
+
+      p {
+        margin-right: 10px;
+        button {
+          background-color: transparent;
+          border: none;
+          color: dodgerblue;
+          cursor: pointer;
+          font-weight: 500;
+          text-decoration: underline;
+        }
+      }
+
+      .register {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        color: #fff;
+        font-weight: 500;
+        cursor: pointer;
+
+        a {
+          color: dodgerblue;
+          text-decoration: underline;
+        }
       }
     }
   }

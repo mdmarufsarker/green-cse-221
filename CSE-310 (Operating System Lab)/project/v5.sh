@@ -112,7 +112,9 @@ delete_note() {
 register() {
     read -p "Enter your username: " username
     read -s -p "Enter your password: " password
+    echo
     hash=$(echo -n $password | sha256sum | awk '{print $1}')
+    echo "Registering user: $username with hash: $hash"  # Debug statement
     if ! grep -q "\"username\": \"$username\"" users.json; then
         jq ". += [{\"username\": \"$username\", \"password\": \"$hash\"}]" users.json > temp.json
         mv temp.json users.json
@@ -128,8 +130,12 @@ register() {
 login() {
     read -p "Enter your username: " username
     read -s -p "Enter your password: " password
-    hash=$(echo -n $hash | sha256sum | awk '{print $1}')
-    if grep -q "\"username\": \"$username\", \"password\": \"$hash\"" users.json; then
+    echo
+    hash=$(echo -n $password | sha256sum | awk '{print $1}')
+    echo "Logging in user: $username with hash: $hash"  # Debug statement
+    stored_hash=$(jq -r --arg username "$username" '.[] | select(.username == $username) | .password' users.json)
+    if [ "$hash" == "$stored_hash" ]; then
+        echo -e "\n\e[32m✅ Login successful\e[0m"
         main_menu
     else
         echo -e "\n\e[31m❌ Invalid username or password\e[0m"
