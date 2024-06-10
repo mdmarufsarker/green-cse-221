@@ -1,0 +1,77 @@
+IIUC - 19
+Daffodil - 12
+AIUB - 10
+UIU - 9
+SUST - 8
+MBSTU - 5
+BUBT - 7
+Metropolitan University Sylhet - 6
+BRAC - 5
+AUST - 6
+BSMRSTU - 4
+RUET - 4
+CUET - 3
+KUET - 1
+Port City - 3
+Southeast University - 3
+Khwaja Yunus - 3
+Patuakhali Science and Technology University - 3
+Begum Rokeya - 3
+Sonargaon - 3
+NSU - 3
+MIST - 2
+Asia Pacific - 2
+GUB - 2
+KU - 3
+EWU - 2
+IST - 2
+DU - 3
+CU - 2
+CoU - 1
+UITS - 2
+Mymensingh Engineering College - 2
+Rangamati - 2
+Jatiya Kabi Kazi Nazrul Islam University - 2
+BU - 3
+Jnu - 2
+Premier University Chittagong - 1
+RUST - 1
+BUET - 1
+Sylhet Engineering College - 2
+HSTU - 1
+DUET - 1
+Prime University - 1
+Northern University of Bangladesh - 2
+International Standard University - 1
+Stamford University - 1
+Sher-E-Bangla - 1
+Islamic University, Kushtia - 2
+Eastern University - 1
+Hajee Mohammad Danesh - 2
+Madrasha - 1
+Gono University - 1
+DIET - 1
+Tejgaon College,Dhaka - 1
+Bangabandhu digital university - 1
+BGC Trust University - 1
+The International University of Scholars - 1
+Notre Dame University Bangladesh - 1
+Brahmanbaria polytechnic institute - 1
+Bangamata Sheikh Fazilatunnesa Mujib science and Technology University - 1
+Manchester Metropolitan University - 1
+North Western University Khulna - 1
+shyamoli ideal polythnice institute - 1
+National Institute of Ayurveda, Jaipur - 1
+Britannia University, Cumilla - 1
+Dhanmondi Law College - 1
+Bangladesh open University - 1
+Goucher College - 1
+China University of Petroleum Beijing - 1
+CQ University,Australia - 1
+NIT, Warangal - 1
+Varendra University - 1
+NSTU - 2
+Dhaka city College - 1
+University Of Global Village(UGV) Barishal - 1
+European University Of Bangladesh - 1
+মৌলভীবাজার পলিটেকনিক ইনস্টিটিউট - 1
