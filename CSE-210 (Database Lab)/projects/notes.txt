@@ -1,1 +1,34 @@
-need a script which will write the output in a single file instead of multiple file. and in the previous answer the list size was so small and have few information. Now I need those list having much more valid information. maybe the list size is 1000. so that when generating 10000 lines I will have such a result which doesn't repeat same information multiple times.
+// start docker
+sudo docker run -p 7000:7000 -p 1521:1521 -it dockerhelp/docker-oracle-ee-18c bash 
+
+// install database
+sh post_install.sh
+
+// run it
+sqlplus
+
+// login
+USER: sys as sysdba
+PASS: oracle
+
+// create a test user
+alter session set "_ORACLE_SCRIPT"=true;
+create user TEST identified by 1234;
+grant dba to TEST;
+
+
+
+
+
+
+
+// find image name
+sudo docker ps
+
+"strange_turing"
+
+// start an existing container in docker
+sudo docker start strange_turing
+sudo docker exec -it strange_turing bash
+sh post_install.sh
+sqlplus

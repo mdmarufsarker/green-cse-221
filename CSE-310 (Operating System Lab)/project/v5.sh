@@ -114,7 +114,7 @@ register() {
     read -s -p "Enter your password: " password
     echo
     hash=$(echo -n $password | sha256sum | awk '{print $1}')
-    echo "Registering user: $username with hash: $hash"  # Debug statement
+    # echo "Registering user: $username with hash: $hash"  # Debug statement
     if ! grep -q "\"username\": \"$username\"" users.json; then
         jq ". += [{\"username\": \"$username\", \"password\": \"$hash\"}]" users.json > temp.json
         mv temp.json users.json
@@ -132,7 +132,7 @@ login() {
     read -s -p "Enter your password: " password
     echo
     hash=$(echo -n $password | sha256sum | awk '{print $1}')
-    echo "Logging in user: $username with hash: $hash"  # Debug statement
+    # echo "Logging in user: $username with hash: $hash"  # Debug statement
     stored_hash=$(jq -r --arg username "$username" '.[] | select(.username == $username) | .password' users.json)
     if [ "$hash" == "$stored_hash" ]; then
         echo -e "\n\e[32m✅ Login successful\e[0m"
@@ -166,3 +166,32 @@ else
 fi
 
 main_menu
+
+
+# Tools and libraries used in the project
+# jq: https://stedolan.github.io/jq/
+
+# Alogrithm in .tex format
+
+# multiple line comment
+: '
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+\section{Algorithm}
+\begin{verbatim}
+1. Start
+2. Create a users.json file if it does not exist
+3. Create a notes directory if it does not exist
+4. Show the main menu
+5. Read the option from the user
+6. Perform the action based on the option
+7. If the option is 1, call create_note function
+8. If the option is 2, call view_notes function
+9. If the option is 3, call update_note function
+10. If the option is 4, call delete_note function
+11. If the option is 5, exit the program
+12. End
+\end{verbatim}
+\end{document}
+'
