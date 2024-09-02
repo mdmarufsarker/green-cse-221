@@ -31,18 +31,18 @@ def random_date(start_year=1990, end_year=2010):
 def generate_insert_queries():
     with open('insert_queries.sql', 'w') as f:
         # # Generate student inserts
-        for i in range(1, 10001):
-            student_id = i
-            gender = 'M' if i % 2 == 0 else 'F'
-            first_name = random.choice(first_names)
-            # middle_name = random.choice(middle_names)
-            last_name = random.choice(last_names)
-            date_of_birth = random_date()
-            other_student_details = "N/A"
+        # for i in range(1, 10001):
+        #     student_id = i
+        #     gender = 'M' if i % 2 == 0 else 'F'
+        #     first_name = random.choice(first_names)
+        #     # middle_name = random.choice(middle_names)
+        #     last_name = random.choice(last_names)
+        #     date_of_birth = random_date()
+        #     other_student_details = "N/A"
 
-            query = (f"INSERT INTO Students3 (student_id, gender, first_name, last_name, date_of_birth, other_student_details) "
-                     f"VALUES ('{student_id}', '{gender}', '{first_name}', '{last_name}', TO_DATE('{date_of_birth}', 'YYYY-MM-DD'), '{other_student_details}');\n")
-            f.write(query)
+        #     query = (f"INSERT INTO Students3 (student_id, gender, first_name, last_name, date_of_birth, other_student_details) "
+        #              f"VALUES ('{student_id}', '{gender}', '{first_name}', '{last_name}', TO_DATE('{date_of_birth}', 'YYYY-MM-DD'), '{other_student_details}');\n")
+        #     f.write(query)
 
         # # # Generate address inserts
         # # for i in range(1, 10001):
