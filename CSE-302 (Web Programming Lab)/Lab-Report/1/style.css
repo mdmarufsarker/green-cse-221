@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    font-family: 'Times New Roman', Times, serif;
+    background-color: aliceblue;
+}
+.left_hr{
+    width: 1px;
+    height: 50px;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.container .left{
+    width: 30%;
+}
+.container .right{
+    width: 70%;
+}
+.container .left .myself{
+    height: 200px;
+    background-color: rgb(61, 61, 61);
+    clip-path: polygon(100% 0, 100% 60%, 50% 85%, 0 60%, 0 0);
+    padding-top: 20px;
+    padding-left: 45px;
+}
+.container .left .myself img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+.container .right .bio{
+    height: 120px;
+    background-color: rgb(61, 61, 61);
+    padding-top: 30px;
+    color: #fff;
+}
