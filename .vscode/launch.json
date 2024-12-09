@@ -19,6 +19,13 @@
           "ignoreFailures": true
         }
       ]
+    },
+    {
+      "type": "node-terminal",
+      "name": "Run Script: dev",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}/CSE-308 (Data Communication Lab)/Project/realtime-chat-app"
     }
   ]
 }
