@@ -2,7 +2,7 @@
 title: 'Machine Learning Lab 2'
 description: 'Introductory Class about machine learning'
 pubDate: 'June 23 2025'
-heroImage: 'https://images.moneycontrol.com/static-mcnews/2022/03/TAXATION-770x433.png?impolicy=website&width=770&height=431'
+heroImage: 'https://miro.medium.com/v2/resize:fit:1400/1*3svxt5IDoVHkGLWvf4IAqg.png'
 ---
 
 ## Lab Task 
@@ -70,7 +70,7 @@ print(dataset.feature_names)
 
 print(dataset.target_names)
 
-print(len(dataset(['data']))) # 150
+print(len(dataset['data'])) # 150
 
 # input -> x
 # output -> y
@@ -86,3 +86,268 @@ for i in range(5):
 for i in range(1,6):
     print(f'{x[-i]} -> {y[-i]}')
 ```
+
+## Calculate the average
+
+```txt
+|sepal length|sepal width|petal length|petal width|
+|------------|-----------|------------|-----------|
+|avg of all 50 values|avg of all 50 values|avg of all 50 values|avg of all 50 values|
+
+based on the target name value 0,1,2
+
+use easy logic so that i can understood
+```
+
+### Without using np
+
+```py
+from sklearn.datasets import load_iris
+
+# Load data
+dataset = load_iris()
+x = dataset['data']  # list of lists
+y = dataset['target']  # list
+target_names = dataset['target_names']
+feature_names = dataset['feature_names']
+
+# Step 1: Prepare a dictionary to collect values for each label
+data_by_class = {0: [], 1: [], 2: []}
+
+# Step 2: Group features based on class labels
+for features, label in zip(x, y):
+    data_by_class[label].append(features)
+
+# Step 3: Calculate average for each feature for each class
+for label in data_by_class:
+    class_name = target_names[label]
+    class_data = data_by_class[label]
+    num_samples = len(class_data)
+
+    # Initialize a list to hold the sum of each feature
+    feature_sums = [0.0, 0.0, 0.0, 0.0]
+
+    # Add up all feature values
+    for sample in class_data:
+        for i in range(4):
+            feature_sums[i] += sample[i]
+
+    # Calculate average
+    feature_avgs = [round(s / num_samples, 2) for s in feature_sums]
+
+    # Print results
+    print(f'\nAverage values for class "{class_name}" (label {label}):')
+    for fname, avg in zip(feature_names, feature_avgs):
+        print(f'  {fname}: {avg}')
+```
+
+Explanation:
+
+```python
+from sklearn.datasets import load_iris
+
+# Load data
+dataset = load_iris()
+x = dataset['data']  # list of features
+y = dataset['target']  # list of labels (0, 1, 2)
+target_names = dataset['target_names']
+feature_names = dataset['feature_names']
+
+# Step 1: Create a dictionary to group data by class labels
+data_by_class = {0: [], 1: [], 2: []}
+
+# Step 2: Loop through all samples and group them by class label
+for features, label in zip(x, y):
+    data_by_class[label].append(features)
+
+# Step 3: Calculate average of each feature for each class
+for label in data_by_class:
+    class_name = target_names[label]            # Get class name (e.g., "setosa")
+    class_data = data_by_class[label]           # List of samples (each sample is a list of 4 features)
+    num_samples = len(class_data)               # Number of samples in this class
+
+    # Step 4: Initialize list to hold sum of each feature (4 features)
+    feature_sums = [0.0, 0.0, 0.0, 0.0]
+
+    # Step 5: Add up each feature column-wise
+    for sample in class_data:                   # Each sample = [sepal length, sepal width, petal length, petal width]
+        for i in range(4):                       # Loop over 4 features
+            feature_sums[i] += sample[i]         # Add current feature value to the corresponding sum
+
+    # Step 6: Calculate average by dividing sum by number of samples
+    feature_avgs = [round(s / num_samples, 2) for s in feature_sums]
+
+    # Step 7: Print results in readable format
+    print(f'\nAverage values for class "{class_name}" (label {label}):')
+    for fname, avg in zip(feature_names, feature_avgs):
+        print(f'  {fname}: {avg}')
+```
+
+### 🧠 Detailed Explanation
+
+#### 🔹 `from sklearn.datasets import load_iris`
+
+Loads a function to get the Iris dataset from scikit-learn.
+
+---
+
+#### 🔹 `dataset = load_iris()`
+
+Loads the dataset into a dictionary-like object.
+
+---
+
+#### 🔹 `x = dataset['data']`
+
+`x` holds the feature data — a list of lists. Each inner list is one sample with 4 feature values:
+
+```python
+[sepal length, sepal width, petal length, petal width]
+```
+
+---
+
+#### 🔹 `y = dataset['target']`
+
+`y` holds the target class for each sample. It's a list of 150 values like:
+
+```python
+[0, 0, 0, ..., 1, 1, ..., 2, 2, ...]
+```
+
+---
+
+#### 🔹 `target_names = dataset['target_names']`
+
+This gives the class names: `['setosa', 'versicolor', 'virginica']`
+
+---
+
+#### 🔹 `feature_names = dataset['feature_names']`
+
+This gives the column names:
+`['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']`
+
+---
+
+#### 🔹 `data_by_class = {0: [], 1: [], 2: []}`
+
+Creates an empty dictionary to store samples grouped by class label (0, 1, 2).
+
+---
+
+#### 🔹 `for features, label in zip(x, y):`
+
+Combines `x` and `y` using `zip()` so we can loop through each feature row and its corresponding label.
+
+Example:
+
+```python
+features = [5.1, 3.5, 1.4, 0.2]
+label = 0
+```
+
+---
+
+#### 🔹 `data_by_class[label].append(features)`
+
+Adds the feature row to the list for its class in the dictionary.
+
+---
+
+#### 🔹 `for label in data_by_class:`
+
+Now loop through each class (0, 1, 2) to process averages.
+
+---
+
+#### 🔹 `class_data = data_by_class[label]`
+
+Get all feature rows for the current class.
+
+---
+
+#### 🔹 `feature_sums = [0.0, 0.0, 0.0, 0.0]`
+
+Create a list to hold the sum of each of the 4 features.
+
+---
+
+#### 🔹 `for sample in class_data:`
+
+Loop through each sample (which is a list of 4 numbers).
+
+---
+
+#### 🔹 `for i in range(4):`
+
+Loop through each feature index (0 to 3).
+
+---
+
+#### 🔹 `feature_sums[i] += sample[i]`
+
+Add the i-th feature of the sample to the i-th total sum.
+
+---
+
+#### 🔹 `feature_avgs = [round(s / num_samples, 2) for s in feature_sums]`
+
+Divide each feature sum by the number of samples to get the average, and round to 2 decimal places.
+
+---
+
+#### 🔹 `for fname, avg in zip(feature_names, feature_avgs):`
+
+Pair each feature name with its average value and print it.
+
+---
+
+### ✅ Sample Output:
+
+```
+Average values for class "setosa" (label 0):
+  sepal length (cm): 5.01
+  sepal width (cm): 3.42
+  petal length (cm): 1.46
+  petal width (cm): 0.24
+```
+
+### Using np
+
+```py
+import numpy as np
+from sklearn.datasets import load_iris
+
+# Load the dataset
+dataset = load_iris()
+x = dataset['data']
+y = dataset['target']
+target_names = dataset['target_names']
+feature_names = dataset['feature_names']
+
+# Loop over each class label (0, 1, 2)
+for label in np.unique(y):
+    class_name = target_names[label]
+    
+    # Get all samples (rows) where the target is this label
+    class_data = x[y == label]
+    
+    # Calculate the average of each column (axis=0 means column-wise)
+    avg_values = class_data.mean(axis=0)
+    
+    # Print the result in a readable format
+    print(f'\nAverage values for class "{class_name}" (label {label}):')
+    for fname, avg in zip(feature_names, avg_values):
+        print(f'  {fname}: {avg:.2f}')
+```
+
+## 📊 Output in Table Format
+
+| Class          | Sepal Length | Sepal Width | Petal Length | Petal Width |
+| -------------- | ------------ | ----------- | ------------ | ----------- |
+| **Setosa**     | 5.01         | 3.42        | 1.46         | 0.24        |
+| **Versicolor** | 5.94         | 2.77        | 4.26         | 1.33        |
+| **Virginica**  | 6.59         | 2.97        | 5.55         | 2.03        |
+
+> 🔢 These values are the **averages** of each feature for the 3 flower types (based on class label 0, 1, 2).
