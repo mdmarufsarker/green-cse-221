@@ -1,0 +1,61 @@
+---
+title: 'Machine Learning Lab 2'
+description: 'Introductory Class about machine learning'
+pubDate: 'June 23 2025'
+heroImage: 'https://images.moneycontrol.com/static-mcnews/2022/03/TAXATION-770x433.png?impolicy=website&width=770&height=431'
+---
+
+## Lab Task 
+
+- 1 - 10000 -> tax 5%
+- 10001 - 50000 -> tax 10%
+- 50001 - 100000 -> tax 20%
+- over 100000 -> tax 30%
+
+```py
+income = int(input())
+
+def calcParcent(income, p):
+    return income * p
+
+def tax(prev, curr):
+    print(prev + curr)
+    return None
+
+if income < 0:
+    print("Wrong Input")
+else:
+    tax = 0
+    if income <= 10000:
+        tax = calcParcent(10000, .05)
+        print(tax)
+    elif income <= 50000:
+        prev = calcParcent(10000, .05)
+        curr = (income - 10000) * .10
+        tax(prev, curr)
+    elif income <= 100000:
+        prev = calcParcent(10000, .05) + calcParcent(40000, .10)
+        curr = (income - 50000) * .20
+        tax(prev, curr)
+    else:
+        prev = calcParcent(10000, .05) + calcParcent(40000, .10) + calcParcent(50000, .20)
+        curr = (income - 100000) * .30
+        tax(prev, curr)
+```
+
+## Softwares:
+
+- Jupyter Notebook
+- Anaconda
+- Google Colab
+    - T4 GPU for Machine Learning Projects
+    - Have limitations (Gives less time)
+- Kaggle
+    - Gives more time than Google Colab
+
+## KNN (k-Nearest Neighbors)
+
+KNN, or k-Nearest Neighbors, is a supervised machine learning algorithm used for both classification and regression tasks. It works by classifying a new data point based on the majority class of its k-nearest neighbors in the feature space. In essence, it assumes that similar data points are located near each other. 
+
+`Scikit-learn < tensorflow < pytorch`
+
