@@ -1,0 +1,241 @@
+---
+title: 'Machine Learning Lab 3'
+description: 'Introductory Class about machine learning'
+pubDate: 'June 23 2025'
+heroImage: 'https://miro.medium.com/v2/resize:fit:1400/1*3svxt5IDoVHkGLWvf4IAqg.png'
+---
+
+# Calculate Median
+
+```py
+from sklearn.datasets import load_iris
+
+dataset = load_iris()
+
+x = dataset['data']
+y = dataset['target']
+
+unique_class = []
+
+for cls in y:
+    if cls not in unique_class:
+        unique_class.append(cls)
+
+for cls in unique_class:
+    class_data = {"sl":[], "sw":[], "pl":[], "pw":[]}
+
+    for i in range(len(x)):
+        if y[i] == cls:
+            class_data["sl"].append(x[i][0])
+            class_data["sw"].append(x[i][1])
+            class_data["pl"].append(x[i][2])
+            class_data["pw"].append(x[i][3])
+
+    for key in class_data.keys():
+        class_data[key].sort()
+
+        if len(class_data[key]) % 2 == 0:
+            median = (class_data[key][len(class_data[key]) // 2 - 1] + class_data[key][len(class_data[key]) // 2]) / 2
+        else:
+            median = class_data[key][len(class_data[key]) // 2]
+
+        print(f"Median of {key} for class {cls}: {median}")
+```
+
+## Steps
+
+- data collection
+- model Selection
+- data preprocessing
+- model train 
+- accuracy test
+
+### Data Collection
+
+```py
+from sklearn.datasets import load_iris
+
+dataset = load_iris()
+
+x = dataset['data']
+y = dataset['target']
+```
+
+### Model Selection
+
+```py
+from sklearn.model_selection import train_test_split
+
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.20)
+
+print(len(x_train))
+print(len(x_test))
+```
+
+### Data Preprocessing
+
+```py
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+scaler.fit(x_train)
+
+x_train = scaler.transform(x_train)
+x_test = scaler.transform(x_test)
+```
+
+### Model Train
+
+```py
+from sklearn.neighbors import KNeighborsClassifier
+
+classifier = KNeighborsClassifier(n_neighbors = 3)
+
+classifier.fit(x_train, y_train)
+```
+
+## Accuracy Test
+
+```py
+from sklearn import metrics
+
+y_pred = classifier.predict(x_test)
+
+result = metrics.accuracy_score(y_test, y_pred)
+
+print(result)
+```
+
+## Summary
+
+```py
+# 📌 Step 1: Data Collection
+# Load the Iris dataset from sklearn's built-in datasets
+from sklearn.datasets import load_iris
+
+dataset = load_iris()
+x = dataset['data']      # Features: sepal length, sepal width, petal length, petal width
+y = dataset['target']    # Labels: 0 = setosa, 1 = versicolor, 2 = virginica
+
+# 📌 Step 2: Model Selection (Train-Test Split)
+# Split the dataset into 80% training and 20% testing
+from sklearn.model_selection import train_test_split
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.20, random_state=42)
+
+# Optional: Print dataset sizes
+print("Training samples:", len(x_train))
+print("Testing samples:", len(x_test))
+
+# 📌 Step 3: Data Preprocessing
+# Standardize the features (mean=0, std=1) for better performance in KNN
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+scaler.fit(x_train)  # Fit only on training data
+
+x_train = scaler.transform(x_train)  # Transform training data
+x_test = scaler.transform(x_test)    # Transform test data (using training parameters)
+
+# 📌 Step 4: Model Training
+# Create and train a K-Nearest Neighbors classifier (k=3)
+from sklearn.neighbors import KNeighborsClassifier
+
+classifier = KNeighborsClassifier(n_neighbors=3)
+classifier.fit(x_train, y_train)
+
+# 📌 Step 5: Accuracy Testing / Evaluation
+# Predict on the test set and measure accuracy
+from sklearn import metrics
+
+y_pred = classifier.predict(x_test)
+accuracy = metrics.accuracy_score(y_test, y_pred)
+
+print("Model Accuracy:", accuracy)
+```
+
+## 🧠 **What is this thing?**
+
+This is a **Supervised Machine Learning Pipeline** using the **K-Nearest Neighbors (KNN)** algorithm on the **Iris dataset**. You're going through the essential steps of a machine learning project:
+
+---
+
+## ✅ **Step-by-Step Explanation**
+
+### 1. **Data Collection**
+
+```python
+from sklearn.datasets import load_iris
+
+dataset = load_iris()
+
+x = dataset['data']
+y = dataset['target']
+```
+
+You're loading a classic dataset called **Iris**, which includes measurements of flower features (sepal and petal length/width) and the target class (species of flower: setosa, versicolor, virginica).
+
+---
+
+### 2. **Model Selection**
+
+```python
+from sklearn.model_selection import train_test_split
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.20)
+```
+
+You're **splitting the data** into training and testing sets — 80% for training, 20% for testing. This prepares the data for evaluation.
+
+---
+
+### 3. **Data Preprocessing**
+
+```python
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+scaler.fit(x_train)
+
+x_train = scaler.transform(x_train)
+x_test = scaler.transform(x_test)
+```
+
+This step **normalizes the feature values** using standard scaling (mean = 0, std = 1). This is important for distance-based models like KNN, where features must be on the same scale.
+
+---
+
+### 4. **Model Training**
+
+```python
+from sklearn.neighbors import KNeighborsClassifier
+
+classifier = KNeighborsClassifier(n_neighbors=3)
+classifier.fit(x_train, y_train)
+```
+
+You're **initializing** and **training a KNN model** with `k=3`. It memorizes the training data to make predictions based on the majority vote of the 3 nearest neighbors.
+
+---
+
+### 5. **Accuracy Testing**
+
+```python
+from sklearn import metrics
+
+y_pred = classifier.predict(x_test)
+result = metrics.accuracy_score(y_test, y_pred)
+
+print(result)
+```
+
+You're **evaluating the model** by comparing predicted values (`y_pred`) with actual values (`y_test`) and computing the **accuracy score** — the percentage of correctly predicted samples.
+
+---
+
+## 🔍 Summary
+
+**This "thing" is a complete supervised learning classification project using KNN on the Iris dataset.**
+It demonstrates the full ML lifecycle:
+
+* Load → Split → Scale → Train → Evaluate.
