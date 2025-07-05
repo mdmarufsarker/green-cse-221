@@ -1,0 +1,122 @@
+---
+title: 'Machine Learning Lab 4'
+description: 'Introductory Class about machine learning'
+pubDate: 'July 5 2025'
+heroImage: 'https://miro.medium.com/v2/resize:fit:1400/1*3svxt5IDoVHkGLWvf4IAqg.png'
+---
+
+# Steps
+
+- Data Collection
+- Model Selection
+- Data Preprocessing
+- Model Training
+- Accuracy Testing
+
+## Data Collection
+
+```py
+from sklearn.datasets import load_iris
+
+dataset = load_iris()
+x = dataset['data']
+y = dataset['target']
+```
+
+## Model Selection
+
+```py
+from sklearn.model_selection import train_test_split
+
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.20, random_state=42)
+
+print("Training samples: ", len(x_train))
+print("Testing samples: ", len(x_test))
+```
+
+## Data Preprocessing
+
+```py
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+scaler.fit(x_train)
+
+x_train = scaler.transform(x_train)
+x_test = scaler.transform(x_test)
+```
+
+## Model Training
+
+```py
+from sklearn.neighbors import KNeighborsClassifier
+
+classifier = KNeighborsClassifier(n_neighbors=3)
+classifier.fit(x_train, y_train)
+```
+
+## Accuracy Testing
+
+```py
+from sklearn import metrics
+
+y_pred = classifier.predict(x_test)
+accuracy = metrics.accuracy_score(y_test, y_pred)
+
+print("Model Accuracy: ", accuracy)
+```
+
+# Confusion Matrix and Classification Report
+
+```py
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import metrics
+
+range_k = range(1, 15)
+scores = {}
+scores_list = []
+
+for k in range_k:
+  classifier = KNeighborsClassifier(n_neighbors=k)
+  classifier.fit(x_train, y_train)
+  y_pred = classifier.predict(x_test)
+  scores[k] = metrics.accuracy_score(y_test, y_pred)
+  scores_list.append(metrics.accuracy_score(y_test, y_pred))
+
+mtrix = metrics.confusion_matrix(y_test, y_pred)
+print("Confusion Matrix: ")
+print(mtrix)
+
+report = metrics.classification_report(y_test, y_pred)
+print("Classification Report: ")
+print(report)
+```
+
+```py
+Output:
+
+Confusion Matrix: 
+[[10  0  0]
+ [ 0  9  0]
+ [ 0  0 11]]
+Classification Report: 
+              precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00        10
+           1       1.00      1.00      1.00         9
+           2       1.00      1.00      1.00        11
+
+    accuracy                           1.00        30
+   macro avg       1.00      1.00      1.00        30
+weighted avg       1.00      1.00      1.00        30
+```
+
+```py
+import matplotlib.pyplot as plt
+
+plt.plot(range_k, scores_list)
+plt.xlabel("Value of K")
+plt.ylabel("Accuracy")
+```
+
+![Plot](../../../../../lab-4/plot.png)
